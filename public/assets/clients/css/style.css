@@ -99,7 +99,7 @@ h1 {
 }
 
 .main {
-    background: url(../../../storage/images/layouts/toys.jpg) no-repeat;
+    background: url(../../../assets/clients/image/toys.jpg) no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100%;

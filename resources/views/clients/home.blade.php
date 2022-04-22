@@ -22,14 +22,14 @@
               <div class="col-lg-8 m-auto">
                   <div class="row text-center gx-4">
                       <div class="col-lg-4">
-                          <img src="/storage/images/layouts/car.png" alt="" class="img-fluid">
+                          <img src="/assets/clients/image/car.png" alt="" class="img-fluid">
                       </div>
                       <div class="col-lg-4">
-                          <img src="/storage/images/layouts/plant.png" alt="" class="img-fluid">
+                          <img src="/assets/clients/image/plant.png" alt="" class="img-fluid">
 
                       </div>
                       <div class="col-lg-4">
-                          <img src="/storage/images/layouts/box.png" alt="" class="img-fluid">
+                          <img src="/assets/clients/image/box.png" alt="" class="img-fluid">
                       </div>
                   </div>
               </div>
