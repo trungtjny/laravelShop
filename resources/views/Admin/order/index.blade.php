@@ -78,7 +78,7 @@
       <div class="d-flex">
         <div class="mx-auto">
             {{ $orders->links(); }}
-      </div>
+        </div>
       </div>
 @endsection
 @section('css')

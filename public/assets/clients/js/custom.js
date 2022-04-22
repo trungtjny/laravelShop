@@ -116,6 +116,15 @@ function reloadPage() {
     });
 }
 
+function sxss() {
+    let url = new URL(location.href);
+    let params = new URLSearchParams(url.search);
+
+    //Add a second foo parameter.
+    params.append('foo', 4);
+    console.log(params)
+}
+
 function addAtive() {
     let currentnlocation = location.href;
 

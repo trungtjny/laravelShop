@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index(){
         $this ->data['title'] = 'Shop đồ chơi E';
         $this ->data['category'] = Category::all();
-        $this ->data['products'] = Product::orderBy('sold', 'desc')->limit(6)->get();
+        $this ->data['products'] = Product::orderBy('sold', 'desc')->limit(4)->get();
         return view('clients.home',$this->data);
     }
     

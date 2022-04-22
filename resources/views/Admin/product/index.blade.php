@@ -43,14 +43,13 @@
                         @if (Request::query('category') || Request::query('keyword'))
                             <a href="{{route('admin.products')}}" class="btn btn-success ml-3">Clear</a>
                         @endif
+                        
             </form>   
-            <div class="d-flex justify-content-end">
-
+            {{-- <div class="d-flex justify-content-end">
                 <a href="{{route('admin.products.create')}}"  class="btn btn-info ml-3 " >Thêm sản phẩm</a>
-                {{-- <a href="./"  class="btn btn-info ml-3 " >Thêm sản phẩm</a> --}}
-            </div>
+            </div> --}}
 
-      <table class="table ">
+      <table class="table mt-3">
         <thead>
           <tr>
             <th scope="col" style="width: 50px">STT</th>
@@ -62,38 +61,38 @@
             <th scope="col">Giá khuyến mãi</th>
             <th scope="col">Khuyến mãi</th>
             <th scope="col">Đăng bán</th>
-            <th scope="col" style="width: 250px">Tuỳ chọn</th>
+            <th scope="col" class="table-primary" style="width: 250px">Tuỳ chọn</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
             @php $i=0; @endphp
             @if (count($products))
                 @foreach ($products as $item)
-                <tr>
-                <td>{{++$i }}</td>
-                <td>{{ $item->name }}</td>
+                <tr >
+                <td class="align-middle">{{++$i }}</td>
+                <td class="align-middle"><b>{{ $item->name }}</b></td>
                 <td>
                     <img src="/storage/images/products/{{$item->thumb}}" style="width: 100px" alt="">
                 </td>
-                <td>{{ $item->amount}}</td>
-                <td>{{ $item->sold}}</td>
-                <td>{{ $item->price}}</td>
-                <td>{{ $item->price_sale}}</td>
-                <td>{{-- {{ $item->active_sale}} --}}
+                <td class="align-middle">{{ $item->amount}}</td>
+                <td class="align-middle">{{ $item->sold}}</td>
+                <td class="align-middle">{{ $item->price}}</td>
+                <td class="align-middle">{{ $item->price_sale}}</td>
+                <td class="align-middle" >{{-- {{ $item->active_sale}} --}}
                     @if ( $item->active_sale)
                         <button class="btn btn-success" onclick="setActive_sale( {{ $item->id}}, {{ $item->active_sale}} )" >Bật</button>
                     @else    
                         <button class="btn btn-danger" onclick="setActive_sale( {{ $item->id}}, {{ $item->active_sale}})" >Tắt</button>
                     @endif
                 </td>
-                <td>
+                <td class="align-middle">
                     @if ( $item->active)
                         <button class="btn btn-success" onclick="setActive( {{ $item->id}}, {{$item->active}} )" >Đang bán</button>
                     @else    
                         <button class="btn btn-danger" onclick="setActive( {{ $item->id}}, {{ $item->active}})" >Tạm ẩn</button>
                     @endif
                 </td>
-                <td>
+                <td class="table-primary align-middle">
                     <a href="{{route('admin.products').'/edit/'.$item->id}}" class="btn btn-warning btn-sm mx-2">
                     <i class="far fa-edit"></i> Sửa
                     </a>

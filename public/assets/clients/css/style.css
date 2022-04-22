@@ -1,0 +1,207 @@
+:root {
+    --bg-info: #F53838;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bg-df {
+    background-color: var(--bg-info);
+}
+
+h1 {
+    font-weight: 700;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.color-df {
+    color: var(--bg-info);
+}
+
+.navbar-brand {
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.nav-link-header {
+    margin: 0 10px;
+    color: black;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 40px;
+    text-decoration: none;
+}
+
+.nav-link-header:hover {
+    color: #F53838;
+}
+
+.nav-link.active {
+    color: #F53838;
+    text-decoration: underline;
+}
+
+.text-sp {
+    letter-spacing: 2px;
+}
+
+.search {
+    height: 40px;
+    width: 80%;
+    outline: none;
+    border: 2px solid var(--bg-info);
+    border-radius: 60px;
+    margin-right: -30px;
+}
+
+.btn-cart {
+    height: 40px;
+    outline: none;
+    padding: 0 20px;
+    border: 2px solid var(--bg-info);
+    color: var(--bg-info);
+    border-radius: 40px;
+    line-height: 40px;
+}
+
+.btn-cart:hover {
+    color: white;
+    background-color: var(--bg-info);
+}
+
+.account {
+    font-weight: 500;
+    background-color: inherit;
+    border: none;
+}
+
+.account:hover {
+    background-color: inherit;
+    border: none;
+    color: #F53838;
+}
+
+.alert-cart {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+    padding: 0 10px;
+    position: absolute;
+    transform: translate(-13px, -8px);
+}
+
+.main {
+    background: url(../../../storage/images/layouts/toys.jpg) no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.main-home {
+    max-height: 600px;
+}
+
+.main-child {
+    max-height: 200px;
+}
+
+.main .title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    text-transform: capitalize;
+    max-width: 555px;
+    text-align: center;
+    text-shadow: rgb(245, 56, 56) 1px 0px 0px, rgb(245, 56, 56) 0.540302px 0.841471px 0px, rgb(245, 56, 56) -0.416147px 0.909297px 0px, rgb(245, 56, 56) -0.989992px 0.14112px 0px, rgb(245, 56, 56) -0.653644px -0.756802px 0px, rgb(245, 56, 56) 0.283662px -0.958924px 0px, rgb(245, 56, 56) 0.96017px -0.279415px 0px;
+}
+
+.button {
+    background-color: transparent;
+    outline: none;
+    color: var(--bg-info);
+    border: 2px solid var(--bg-info);
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.button.button-rv {
+    background-color: var(--bg-info);
+    outline: none;
+    color: white;
+    font-weight: 500;
+}
+
+.button.button-rv:hover {
+    background-color: transparent;
+    color: var(--bg-info);
+}
+
+.button-lg {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 8px 24px;
+}
+
+.button:hover {
+    color: white;
+    background-color: rgb(245, 56, 56);
+}
+
+.trending-item:hover {
+    box-shadow: -2px -1px 24px -5px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: -2px -1px 24px -5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: -2px -1px 24px -5px rgba(0, 0, 0, 0.4);
+}
+
+.product-item:hover {
+    box-shadow: -2px -1px 24px -5px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: -2px -1px 24px -5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: -2px -1px 24px -5px rgba(0, 0, 0, 0.4);
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("https://cdn0.iconfinder.com/data/icons/user-interface-150/24/List_menu_toggle-512.png");
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: black;
+}
+
+
+/* product-page */
+
+.list-group-item.active {
+    color: var(--bg-info);
+    text-decoration: underline;
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(37, 37, 37);
+}
+
+a:hover {
+    color: black;
+}
+
+select {}
+
+select:hover {
+    background-color: gren;
+}
+
+option:hover {
+    background-color: transparent;
+}
+
+option {
+    border-radius: 25px;
+    color: black;
+    background-color: transparent;
+}

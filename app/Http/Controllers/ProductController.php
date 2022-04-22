@@ -27,10 +27,18 @@ class ProductController extends Controller
             $products = Product::where('name','LIKE','%'.$request->keyword.'%')
              ->orWhere('description', 'LIKE','%'.$request->keyword.'%');
         }
+        if(!empty($request->sort)){
+            if($request->sort=='gia-giam') $products = Product::orderBy("price", 'desc');
+            if($request->sort=='gia-tang') $products = Product::orderBy("price", 'asc');
+            if($request->sort=='dang-khuyen-mai') $products = Product::orderBy("active_sale", 'asc');
+            if($request->sort=='dang-khuyen-mai') $products = Product::orderBy("active_sale", 'asc');
+            if($request->sort=='san-pham-moi') $products = Product::orderBy("created_at", 'desc');
+
+        }
         $this ->data['category'] = Category::all();
    
         $this ->data['title'] = 'Sản phẩm';
-        $this ->data['products'] = $products->with('category')->get();
+        $this ->data['products'] = $products->with('category')->paginate(6);
         /* dd($this->data['products']); */
         return view('clients.products',$this->data);
     }
