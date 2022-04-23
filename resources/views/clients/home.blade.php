@@ -78,8 +78,8 @@
     </section>
     <div class="container py-5 ">
       <h3 class="text-center">Về chúng tôi</h3>
-      <div class="row text-center ">
-        <div class="col-sm-4 ">
+      <div class="row text-center gx-5 ">
+        <div class="col-sm-4 col-12">
           <span style="font-size: 50px; color: #000" class="" >
             <i class="fas fa-snowflake-o " aria-hidden="true"></i>
           </span>

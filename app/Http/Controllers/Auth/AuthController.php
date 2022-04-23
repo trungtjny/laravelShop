@@ -72,7 +72,7 @@ class AuthController extends Controller
             'password' =>'required|confirmed|min:6'
         ]);
         $input['name'] = $request->input('name');
-        $input['role'] = $request->input('role',3);
+        $input['role'] = $request->input('role',1);
         $input['email'] = $request->input('email');
         $input['password'] = Hash::make($request->input('password')) ;
         User::create($input);

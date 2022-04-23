@@ -15,7 +15,8 @@
         <input type="text" id="amount" readonly style="border:0; color:red; font-weight:bold; font-size: 20px ; text-align:center" >
     </div>
 </div>
-<h4 class="mb-2">Danh mục sản phẩm</h4>
+<div class="card text-center">
+<h4 class="py-2">Danh mục sản phẩm</h4>
 @php
     echo '<ul class="list-group list-group-flush">';
         foreach ($category as $key => $value) {
@@ -32,4 +33,4 @@
         echo "</li>";
     echo "<ul>";
 @endphp
-
+</div>

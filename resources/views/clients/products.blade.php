@@ -71,7 +71,7 @@
         </div>
       </div>
       @endforeach
-          @else <h5 class="m-3">Không tìm thấy sản phẩm phù hợp</h5>  
+          @else <h5 class="mx-3 my-5">Không tìm thấy sản phẩm phù hợp</h5>  
           @endif
   </div>
   <div class="d-flex mt-3">
