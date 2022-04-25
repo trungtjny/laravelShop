@@ -87,7 +87,7 @@ class ProductsController extends Controller
             $image_name = time().'.'.$image->getClientOriginalName();
             $path = $image->storeAs($destination_path,$image_name);
             $input['thumb'] = $image_name;
-           
+           dd($path);
         }
         $input['sold'] = 0;
         $post = Product::create($input); 
