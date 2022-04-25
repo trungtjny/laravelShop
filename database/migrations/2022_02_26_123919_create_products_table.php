@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer('amount');
             $table->integer('sold');
             $table->text('description')->nullable();
-            $table->longtext('content')->nullable();
+            $table->longtext('product_content')->nullable();
             $table->integer('active');
             $table->integer('active_sale');
             $table->timestamps();
