@@ -53,7 +53,7 @@
                     <div class="d-flex flex-column trending-item p-3 h-100" >
                       <div class="border-0 bg-light  my-auto">
                         <a href="{{route('productDetail', ['id' => $item->id])}}" >
-                          <img src="/storage/images/products/{{$item->thumb}}" alt="" class="img-fluid m-auto">
+                          <img src="/uploads/{{$item->thumb}}" alt="" class="img-fluid m-auto">
                         </a>
                       </div>
                       <div class="pt-3 text-center">
@@ -109,7 +109,7 @@
                 <div class="card product-data">
                   <div class="d-flex align-items-center" style="height: 300px">
                     <a href="{{route('productDetail', ['id' => $item->id])}}" >
-                      <img class="card-img px-1  " src="/storage/images/products/{{$item->thumb}}" alt="Ảnh sản phẩm">
+                      <img class="card-img px-1  " src="/uploads/{{$item->thumb}}" alt="Ảnh sản phẩm">
                     </a>
                   </div>
                   <div class="card-body">

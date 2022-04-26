@@ -69,7 +69,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        /* dd($request->input());   */
+        /* dd($request->input());  */  
         $request->validate([
             'name' => 'required|max:255',
             'category_id' => 'required',
@@ -79,19 +79,20 @@ class ProductsController extends Controller
             'description' => 'required',
             'product_content' => 'required',
         ]); 
-        $input =$request->all();
-        
+        $input =$request->input();
         if($request->hasFile('file')){
-            $destination_path = 'public/images/products';
             $image = $request->file('file');
-            $image_name = time().'.'.$image->getClientOriginalName();
-            $path = $image->storeAs($destination_path,$image_name);
-            $input['thumb'] = $image_name;
-           /* dd($path); */
+            $type = $request->file('file')->extension();
+            $image_name = time().'-product.'.$type;
+            $path = $image->storeAs('products',$image_name,'public_uploads');
+
+            
+            $input['thumb'] = "/products/".$image_name;
+            /* dd($path); */
         }
         $input['sold'] = 0;
+        /* dd($input); */
         $post = Product::create($input); 
-      
         return redirect()->route('admin.products.create')->with('msg','Tạo sản phẩm thành công');
     }
 
@@ -136,16 +137,15 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
        $this->validateForm($request);
-       $input = $request->all();
+       $input = $request->input();
        $item = Product::where('id',$id)->first();
 
         if($request->hasFile('file')){
-            $destination_path = 'public/images/products';
             $image = $request->file('file');
-            $image_name = time().'.'.$image->getClientOriginalName();
-            $path = $image->storeAs($destination_path,$image_name);
-            $input['thumb'] = $image_name;
-            $item->thumb = $input['thumb'];
+            $type = $request->file('file')->extension();
+            $image_name = time().'-product.'.$type;
+            $path = $image->storeAs('products',$image_name,'public_uploads');
+            $input['thumb'] = "/products/".$image_name;
 
         }
         $item->name = $input['name'];
@@ -159,8 +159,9 @@ class ProductsController extends Controller
         $item->product_content = $input[ 'product_content'];
         $item->active = $input['active'];
         $item->active_sale = $input[ 'active_sale'];
+        $item->thumb = $input[ 'thumb'];
+        dd($input);
         $item->save(); 
-
         return redirect()->route('admin.products')->with('msg','Sửa thông tin thành công');
     }
 

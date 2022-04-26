@@ -55,7 +55,7 @@
         <div class="product-item p-2 border d-flex  flex-column" style="height: 100%">
             <div class="my-auto  bg-white">
               <a href="{{route('productDetail', ['id' => $item->id])}}" >
-                <img src="/storage/images/products/{{$item->thumb}}" alt="" class="img-fluid">
+                <img src="/uploads/{{$item->thumb}}" alt="" class="img-fluid">
               </a>
             </div>
             <div class="">
@@ -149,7 +149,7 @@
                 
                 <div class="d-flex align-items-center" style="height: 290px">
                   <a href="{{route('productDetail', ['id' => $item->id])}}" >
-                    <img class="card-img px-1  " src="/storage/images/products/{{$item->thumb}}" alt="Ảnh sản phẩm">
+                    <img class="card-img px-1  " src="/uploads/{{$item->thumb}}" alt="Ảnh sản phẩm">
                   </a>
                 </div>
                 <div class="card-body">

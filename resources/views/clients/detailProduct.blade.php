@@ -20,7 +20,7 @@
                     <div class="col-4">
                         <div class="card">
                             <div class="card-body">
-                                <img class="card-img" src="/storage/images/products/{{$item->thumb}}" alt="Ảnh sản phẩm">
+                                <img class="card-img" src="/uploads/{{$item->thumb}}" alt="Ảnh sản phẩm">
                             </div>
                         </div>
                     </div>

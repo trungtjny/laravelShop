@@ -22,7 +22,7 @@
                 @endphp
                 <div class="row product-data mb-3">
                     <div class="col-2 my-auto">
-                        <img  src="/storage/images/products/{{$item['products']->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px">
+                        <img  src="/uploads/{{$item['products']->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px">
                     </div>
                     <div class="col-4 my-auto">
                         <h4 class="text-"> {{$item['products']->name}}</h4>

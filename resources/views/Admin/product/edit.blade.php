@@ -98,8 +98,8 @@
                         <div class="form-group mb-3">
                             <label for="file">Ảnh sản phẩm</label>
                             <input type="file" class="form-control" value="" data-default-file="{{$item->thumb}}" placeholder="Chosse upload" id="file" name="file">
-                            <a href="/storage/images/products/{{$item->thumb}}" target="_blank" class="mt-2" >
-                                <img src="/storage/images/products/{{$item->thumb}}" alt="" width="160px" class="mt-2"> 
+                            <a href="/uploads/{{$item->thumb}}" target="_blank" class="mt-2" >
+                                <img src="/uploads/{{$item->thumb}}" alt="" width="160px" class="mt-2"> 
                             </a>
                             @if ($errors->any('upload'))
                                 <span class="text-danger">{{$errors->first('file')}}</span>
