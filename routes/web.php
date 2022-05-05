@@ -12,7 +12,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductControllerClient;
 
 
 /*
@@ -38,8 +38,10 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 //
 
 Route::get('/', [HomeController::class,'index'])->name("home");
-Route::get('/products', [ProductController::class,'index'])->name("products");
-Route::get('/product/detail/{id}',[ProductsController::class,'show'])->name('productDetail');
+Route::get('/products', [ProductControllerClient::class,'index'])->name("products");
+Route::get('/products/category/{id}', [ProductControllerClient::class,'getCategory'])->name("product-cate");
+
+Route::get('/product/detail/{id}',[ProductControllerClient::class,'show'])->name('productDetail');
 Route::post('/add-to-cart',[CartController::class,'store'])->name('add-to-cart');
 
 Route::middleware('auth')->group(function (){
@@ -66,7 +68,7 @@ Route::name('admin.')->middleware('admin')->group(function () {
 
     Route::prefix('admin')->group(function () {
        
-        Route::get('/',[AdminController::class,'index'])->name('index');
+        Route::get('/home',[AdminController::class,'index'])->name('index');
          
         Route::prefix('products')->group(function () {
             Route::get('/',[ProductsController::class, 'index'])->name('products');

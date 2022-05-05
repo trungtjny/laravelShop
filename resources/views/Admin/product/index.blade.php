@@ -72,7 +72,7 @@
                 <td class="align-middle">{{++$i }}</td>
                 <td class="align-middle"><b>{{ $item->name }}</b></td>
                 <td>
-                    <img src="/uploads/{{$item->thumb}}" style="width: 100px" alt="">
+                    <img src="/uploads.{{$item->thumb}}" style="width: 100px" alt="">
                 </td>
                 <td class="align-middle">{{ $item->amount}}</td>
                 <td class="align-middle">{{ $item->sold}}</td>

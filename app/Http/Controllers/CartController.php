@@ -47,14 +47,17 @@ class CartController extends Controller
             $product_check = Product::where('id',$product_id)->first();
             if($product_check){
                 if(Cart::where('product_id',$product_id)->where('user_id',Auth::id())->exists()){
-                    return response()->json( ['status' => "Sản phẩm đã có trong giỏ hàng",'result' => "true"]);
+                    $product = Cart::where('product_id',$product_id)->where('user_id',Auth::id())->first();
+                    $product->quantity = $product->quantity + $quantity;
+                    $product->save();
+                    return response()->json( ['status' => "Sản phẩm đã thêm vào giỏ hàng",'result' => "true"]);
                 }
                 $cartItem = new Cart();
                 $cartItem->product_id = $product_id;
                 $cartItem->quantity = $quantity;
                 $cartItem ->user_id = Auth::id();
                 $cartItem->save();
-                return response()->json(['status' => $product_check->name." đã được thêm sản phẩm vào giỏ hàng",'result' => "true"]);
+                return response()->json(['status' => $product_check->name." đã được thêm vào giỏ hàng",'result' => "true"]);
             }
         }
         else {

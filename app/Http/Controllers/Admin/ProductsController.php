@@ -26,6 +26,7 @@ class ProductsController extends Controller
                 foreach ($this ->data['cateChild'] as $item){
                     array_push($arrCate, $item['id']);
                 }
+                array_push($arrCate,  intval($request->category));
                 $products = Product::whereIn('category_id',$arrCate);
             } 
             else 
@@ -33,9 +34,8 @@ class ProductsController extends Controller
         }
         if(!empty($request->keyword)){
             $products = Product::where('name','LIKE','%'.$request->keyword.'%')
-            ->orWhere('description', 'LIKE','%'.$request->keyword.'%');
+            /* ->orWhere('description', 'LIKE','%'.$request->keyword.'%') */;
         }
-        
         return view('Admin.product.index',[
             'title' => 'Danh sách sản phẩm',
             'products' =>$products->with('category')->paginate(5),
@@ -104,13 +104,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        $item = Product::where('id',$id)->first();
-        $category = DB::table('categories')->get();
-        return view("clients.detailProduct",[
-            'title' => 'Chi tiết: ' .$item->name,
-            'category' => $category,
-            'item' => $item
-        ]);
+        
     }
 
     /**
@@ -139,14 +133,14 @@ class ProductsController extends Controller
        $this->validateForm($request);
        $input = $request->input();
        $item = Product::where('id',$id)->first();
-
+       $input['thumb'] = $item->thumb;
         if($request->hasFile('file')){
+            unlink("uploads/".$item->thumb);
             $image = $request->file('file');
             $type = $request->file('file')->extension();
             $image_name = time().'-product.'.$type;
             $path = $image->storeAs('products',$image_name,'public_uploads');
             $input['thumb'] = "/products/".$image_name;
-
         }
         $item->name = $input['name'];
         $item->category_id = $input['price'];
@@ -160,7 +154,7 @@ class ProductsController extends Controller
         $item->active = $input['active'];
         $item->active_sale = $input[ 'active_sale'];
         $item->thumb = $input[ 'thumb'];
-        dd($input);
+        /* dd($input); */
         $item->save(); 
         return redirect()->route('admin.products')->with('msg','Sửa thông tin thành công');
     }
@@ -171,6 +165,7 @@ class ProductsController extends Controller
         $id =  $request->input('id');
         $product = Product::where('id',$id)->first();
         if($product){
+            unlink("uploads/".$product->thumb);
             Product::where('id', $id)->delete();
             return response()->json([
                 'error' => false,

@@ -7,6 +7,18 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+p {
+    margin: 12px 0;
 }
 
 .bg-df {
@@ -41,12 +53,16 @@ h1 {
 }
 
 .nav-link-header:hover {
-    color: #F53838;
+    color: var(--bg-info);
 }
 
 .nav-link.active {
-    color: #F53838;
+    color: var(--bg-info);
     text-decoration: underline;
+}
+
+.nav-link-header.active {
+    color: var(--bg-info);
 }
 
 .text-sp {
@@ -59,7 +75,14 @@ h1 {
     outline: none;
     border: 2px solid var(--bg-info);
     border-radius: 60px;
-    margin-right: -30px;
+}
+
+.btn-search {
+    margin-left: -62px;
+    padding: 6px 20px;
+    color: white;
+    background-color: var(--bg-info);
+    border-radius: 60px;
 }
 
 .btn-cart {
@@ -70,6 +93,16 @@ h1 {
     color: var(--bg-info);
     border-radius: 40px;
     line-height: 40px;
+}
+
+.btn-filter {
+    padding: 0 0.5rem;
+    outline: none;
+    margin: 0 8px;
+    color: white;
+    background-color: var(--bg-info);
+    border-radius: 4px;
+    text-align: center;
 }
 
 .btn-cart:hover {
@@ -130,6 +163,7 @@ h1 {
     border: 2px solid var(--bg-info);
     border-radius: 60px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .button.button-rv {
@@ -171,9 +205,7 @@ h1 {
     background-image: url("https://cdn0.iconfinder.com/data/icons/user-interface-150/24/List_menu_toggle-512.png");
 }
 
-.custom-toggler.navbar-toggler {
-    border-color: black;
-}
+.custom-toggler.navbar-toggler {}
 
 
 /* product-page */
@@ -182,8 +214,7 @@ h1 {
     color: var(--bg-info);
     text-decoration: underline;
     background-color: transparent;
-    border-color: rgba(0, 0, 0, 0);
-    border: 1px solid rgb(37, 37, 37);
+    border: none;
 }
 
 a:hover {
@@ -204,4 +235,26 @@ option {
     border-radius: 25px;
     color: black;
     background-color: transparent;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+#sort {
+    padding: 4px 12px;
+    border: 1px solid var(--bg-info);
+    border-radius: 30px;
+}
+
+.ui-slider {
+    border: 1px solid var(--bg-info);
+    width: 200px;
+}
+
+.ui-slider-range {}
+
+.ui-slider .ui-slider-range {
+    background-color: var(--bg-info);
 }

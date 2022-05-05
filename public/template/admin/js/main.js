@@ -46,7 +46,6 @@ function addAtiveClass() {
     let currentnlocation = location.href;
     let parentItem = document.querySelectorAll("nav > ul > li > a ");
     console.log(currentnlocation);
-    console.log(parentItem);
     for (var i = 0; i < parentItem.length; i++) {
         console.log(parentItem[7])
         if (currentnlocation.includes(parentItem[i].href)) {

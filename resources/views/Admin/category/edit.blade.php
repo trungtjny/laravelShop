@@ -13,7 +13,7 @@
                     </div>
                 @endif
                 @if (Session::has('error'))
-                    <div class="alert alert-danger text-center ">{{Session::get('error')}}</div>
+                    <div class="alert alert-danger ">{{Session::get('error')}}</div>
             @endif
                 <form action="{{route('admin.category.update', ['id' => $item->id])}}" method="POST">
                     <div class="card-body">
@@ -52,16 +52,22 @@
                             </div>
                 
                             <div class="form-group">
-                                <label for="">Kích hoạt</label>
-                                <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="active" value="1" name="active"
-                                    {{$item->active == 1 ? 'checked=""' : ''}}>
-                                <label for="active" class="custom-control-label">Có</label>
-                                </div>
-                                <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" value="0" id="no_active" name="active" 
-                                     {{$item->active == 0 ? 'checked=""' : ''}}>
-                                <label for="no_active" class="custom-control-label">Không</label>
+                                <div class="row">
+                                    <div class="col-1"> <label for="">Kích hoạt</label></div>
+                                    <div class="col-1">
+                                        <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="active" value="1" name="active"
+                                            {{$item->active == 1 ? 'checked=""' : ''}}>
+                                        <label for="active" class="custom-control-label">Có</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-1">
+                                        <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" value="0" id="no_active" name="active" 
+                                             {{$item->active == 0 ? 'checked=""' : ''}}>
+                                        <label for="no_active" class="custom-control-label">Không</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                     </div>

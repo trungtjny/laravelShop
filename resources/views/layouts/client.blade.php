@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> @yield('title') - </title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="/assets/clients/css/style.css">
@@ -31,12 +31,22 @@
                 </div>
             </div>
           </section>
+          <div class="container mt-2">
+            <div class="row ">
+                <div class="col-12">
+                    <div class="d-flex  align-items-center border-top border-bottom" style="height: 60px">
+                        <p class="m-0 ps-2">Trang chủ > </p>
+                        <p class="m-0 ps-2"> {{ $title}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container mb-5">
-            <div class="row gx-3">
-                <div class="col-3 d-none d-lg-block mt-5">
+            <div class="row gx-3 mt-3">
+                <div class="col-3 d-none d-lg-block ">
                     @yield('sidebar')
                 </div>
-                <div class="content col-lg-9 col-12 ">
+                <div class="content col-lg-9 col-12 " >
                     @yield('content')
                 </div>
             </div>

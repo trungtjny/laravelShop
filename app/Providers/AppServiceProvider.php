@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +26,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        
+        view()->composer('*', function($view)
+        {
+            if (Auth::check()) {
+                $cartQuanity = Cart::where('user_id',Auth::id())->count();
+                View::share('cartQuantity',$cartQuanity);
+            }else {
+                View::share('cartQuantity',0);
+            }
+        });
         Paginator::useBootstrap();
     }
 }

@@ -51,7 +51,7 @@ class CheckoutController extends Controller
                $productItem->update();
 
                $user = User::where('id',Auth::id())->first();
-               if($user->role ==4){
+               if($user->role > 0){
                 $user->fname = $input['fname'];
                 $user->lname = $input['lname'];
                 $user->address = $input['address'];

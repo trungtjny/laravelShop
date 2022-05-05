@@ -13,7 +13,7 @@
                     </div>
                 @endif
                 @if (Session::has('error'))
-                    <div class="alert alert-danger text-center ">{{Session::get('error')}}</div>
+                    <div class="alert alert-danger  ">{{Session::get('error')}}</div>
             @endif
                 <form action="{{route('admin.products.store')}}" method="POST"  enctype="multipart/form-data">
                     <div class="card-body">
@@ -125,11 +125,11 @@
                                 <div class="form-group">
                                     <label for="">Bán với giá khuyến mãi</label>
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="active_sale" value="1" name="active_sale" checked="">
+                                        <input class="custom-control-input" type="radio" id="active_sale" value="1" name="active_sale" >
                                         <label for="active_sale" class="custom-control-label">Có</label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" value="0" id="no_active_sale" name="active_sale" >
+                                        <input class="custom-control-input" type="radio" value="0" id="no_active_sale" name="active_sale" checked="" >
                                         <label for="no_active_sale" class="custom-control-label">Không</label>
                                     </div>
                                 </div>

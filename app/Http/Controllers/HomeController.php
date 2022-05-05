@@ -11,11 +11,9 @@ class HomeController extends Controller
 {
     public $data = [];
     public function index(){
-        $this ->data['title'] = 'Shop đồ chơi E';
+        $this ->data['title'] = 'Trang chủ ';
         $this ->data['category'] = Category::all();
-        $this ->data['products'] = Product::orderBy('sold', 'desc')->limit(4)->get();
+        $this ->data['products'] = Product::orderBy('sold', 'desc')->limit(6)->get();
         return view('clients.home',$this->data);
     }
-    
-  
 }

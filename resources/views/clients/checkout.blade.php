@@ -3,20 +3,28 @@
     {{$title}}
 @endsection
 @section('content')
-<div class="container mt-3 ">
-    <div class="bg-warning py-2">
-        <h5 class="m-1 px-2"><a class="text-dark" href="{{route('home')}}">Trang chủ</a> / <a class="text-dark" href="{{route('cart')}}">Giỏ hàng</a> / <a class="text-dark" href="{{route('cart')}}">Thanh toán</a></h5>
-    </div>
-                @if (session('msg'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('msg') }}
-                    </div>
-                @endif
-                @if (Session::has('error'))
-                    <div class="alert alert-danger text-center ">{{Session::get('error')}}</div>
-                @endif
+<div class="container mt-3  ">
+    <div class="bg-light">
+        @if (session('msg'))
+        <div class="alert alert-success" role="alert">
+            {{ session('msg') }}
+        </div>
+    @endif
+    @if (Session::has('error'))
+        <div class="alert alert-danger text-center ">{{Session::get('error')}}</div>
+    @endif
+    <div class="mb-3">
+        <div class="row ">
+            <div class="col-12">
+                <div class="d-flex  align-items-center border-top border-bottom" style="height: 60px">
+                    <p class="m-0 ps-2">Trang chủ > </p>
+                    <p class="m-0 ps-2"> {{$title}} </p>
+                </div>
+            </div>
+        </div>
+    </div> 
     <form action="{{route('order')}}" method="POST">
-        <div class="row " style="min-height: 55vh">
+        <div class="row " >
             <div class="col-7">
                 <div class="card">
                     <div class="card-body">
@@ -25,7 +33,7 @@
                         <div class="row">
                             <div class="col-6 mb-4">
                                 <label for="fname">Họ </label>
-                                <input type="text" name="fname" class="form-control" placeholder="Nhập họ, tên đệm" value="">
+                                <input type="text" name="fname" class="form-control" placeholder="Nhập họ, tên đệm" value="{{Auth::user()->fname}}">
                                 @if ($errors->any('fname'))
                                 <span class="text-danger ml-2">{{$errors->first('fname')}}</span>
                                 @endif
@@ -33,28 +41,28 @@
                             
                             <div class="col-6 mb-4">
                                 <label for="lname">Tên </label>
-                                <input type="text" name="lname" class="form-control" placeholder="Tên ">
+                                <input type="text" name="lname" class="form-control" placeholder="Tên " value="{{Auth::user()->lname}}">
                                 @if ($errors->any('lname'))
                                     <span class="text-danger ml-2">{{$errors->first('lname')}}</span>
                                  @endif
                             </div>
                             <div class="col-6 mb-4">
                                 <label for="phone">Số điện thọai </label>
-                                <input type="text" name="phone" class="form-control" placeholder="0123456789">
+                                <input type="text" name="phone" class="form-control" placeholder="0123456789" value="{{Auth::user()->phone}}">
                                 @if ($errors->any('phone'))
                                     <span class="text-danger ml-2">{{$errors->first('phone')}}</span>
                                 @endif
                             </div>
                             <div class="col-6 mb-4">
                                 <label for="city">Thành phố/Tỉnh </label>
-                                <input type="text" name="city" class="form-control" placeholder="Tên tỉnh, thành phố">
+                                <input type="text" name="city" class="form-control" placeholder="Tên tỉnh, thành phố" value="{{Auth::user()->city}}">
                                 @if ($errors->any('city'))
                                     <span class="text-danger ml-2">{{$errors->first('city')}}</span>
                                 @endif
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="address">Địa chỉ nhận hàng </label>
-                                <input type="text" name="address" class="form-control" placeholder="Tên đường, số nhà, xã-phường, quận-huyện">
+                                <input type="text" name="address" class="form-control" placeholder="Tên đường, số nhà, xã-phường, quận-huyện" value="{{Auth::user()->address}}" >
                                 @if ($errors->any('address'))
                                     <span class="text-danger ml-2">{{$errors->first('address')}}</span>
                                 @endif
@@ -104,7 +112,7 @@
                                 <input type="number" hidden name="totalPrice" value="{{$totalPrice}}" class="form-control" >
                             </div>
                             <div class="col-6  d-grid gap-2 " style="">
-                                <button class="btn btn-primary rounded-pill" type="submit">Đặt hàng</a></button>
+                                <button class="btn btn-cart rounded-pill" type="submit">Đặt hàng</a></button>
                             </div>
                         </div>
                     </div>
@@ -113,6 +121,7 @@
         </div>
         @csrf
     </form>
+    </div>
 </div>
 @endsection
 @section('sidebar')

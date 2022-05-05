@@ -19,15 +19,11 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                    with font-awesome or any other icon font library -->
-                
-                    
                 {{-- menu nhân viên --}}
-                <li class="nav-item ">
-                    <a href="{{route('admin.index')}}" class="nav-link bg-gray-dark ">
-                    <i class="fa fa-home p-1"></i>
-                    <p>Home</p>
+                <li class="nav-item  active">
+                    <a href="{{route('admin.index')}}" class="nav-link  ">
+                    <i class="fa fa-home p-2"></i>
+                    <p> HOME</p>
                     </a>
                 </li>
                 @if (Auth::user()->role <=2 )
@@ -51,12 +47,6 @@
                         <a href="{{route('admin.category.create')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Thêm danh mục</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../../index3.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Dashboard v3</p>
                         </a>
                     </li>
                     </ul>
@@ -83,12 +73,7 @@
                         <p>Thêm sản phẩm</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="../../index3.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Dashboard v3</p>
-                        </a>
-                    </li>
+                    
                     </ul>
                 </li>
                 {{-- Đơn hàng --}}
@@ -107,24 +92,6 @@
                         <p>Danh sách đơn hàng</p>
                         </a>
                     </li>
-                   {{--  <li class="nav-item">
-                        <a href="../tables/data.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Đơn vận chuyển</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('admin.order.finish')}}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Đơn hoàn thành</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../tables/data.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Đơn huỷ</p>
-                        </a>
-                    </li> --}}
                     </ul>
                 </li>
                 @endif
@@ -171,9 +138,7 @@
                 </li>
                 @endif
                 @if (Auth::user()->role ==1)
-
                 <li class="nav-header"><h5 class="text-warning">Quản lý nhân sự</h5></li>
-               
                 <li class="nav-item">
                     <a href="{{route('admin.listmember')}}" class="nav-link">
                     <i class="nav-icon far fa-envelope"></i>

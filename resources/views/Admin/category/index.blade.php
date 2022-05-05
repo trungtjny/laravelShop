@@ -10,7 +10,7 @@
                     </div>
                 @endif
                 @if (Session::has('error'))
-                    <div class="alert alert-danger text-center ">{{Session::get('error')}}</div>
+                    <div class="alert alert-danger  ">{{Session::get('error')}}</div>
             @endif
   <div class="row">
     <div class="col-2"></div>
@@ -18,7 +18,7 @@
       <table class="table ">
         <thead>
           <tr>
-            <th scope="col" style="width: 50px">ID</th>
+            <th scope="col" style="width: 50px">STT</th>
             <th scope="col">Tên danh mục</th>
             <th scope="col">Hiển thị</th>
             <th scope="col">Ngày tạo</th>
@@ -31,14 +31,15 @@
               
     $html ='';
     $sub ='|---';
+    $index= 0;
     foreach($categories as $key => $item){
         if($item->parent_id == 0){
             $html .= '
             <tr>
-                <td>'. $item->id.'</td>
-                <td>'.$item->name.'</td>
-                <td>'. $item->active.'</td>
-                <td>'. $item->created_at.'</td>
+                <td><b>'. ++$index.'</b></td>
+                <td><b>'.$item->name.'</b></td>
+                <td><b>'. $item->active.'</b></td>
+                <td><b>'. $item->created_at.'</b></td>
                 <td>
                     <a href="'.route('admin.category.edit', ['id' => $item->id]).'"  class="btn btn-warning btn-sm mx-2">
                     <i class="far fa-edit"></i>
@@ -54,7 +55,7 @@
               if($item->parent_id == $id){
                   $html .= '
                   <tr>
-                    <td>'. $item->id.'</td>
+                    <td></td>
                     <td>'.$sub.$item->name.'</td>
                     <td>'. $item->active.'</td>
                     <td>'. $item->updated_at.'</td>

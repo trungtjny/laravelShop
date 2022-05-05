@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 class Authenticate extends Middleware
@@ -15,7 +17,12 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return route('admin.login');
+            return route('login');
+        }
+        else {
+            $cartQuantity = Cart::where('user_id',Auth::id())->get();
+            dd($cartQuantity);
+            View::share('cartQuantity',$cartQuantity);
         }
     }
 }
