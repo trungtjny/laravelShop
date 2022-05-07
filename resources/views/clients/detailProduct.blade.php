@@ -23,7 +23,7 @@
                             <div class="col-lg-4 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img class="img-fluid" src="/uploads/{{$item->thumb}}" alt="Ảnh sản phẩm">
+                                        <img class="img-fluid" src="/uploads/products/{{$item->thumb}}" alt="Ảnh sản phẩm">
                                     </div>
                                 </div>
                             </div>

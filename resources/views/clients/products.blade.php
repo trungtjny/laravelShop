@@ -59,7 +59,7 @@
         <div class="product-item p-2 border d-flex  flex-column product-data" style="height: 100%">
             <div class="mb-auto  bg-white">
               <a href="{{route('productDetail', ['id' => $item->id])}}" >
-                <img src="/uploads/{{$item->thumb}}" alt="" class="img-fluid">
+                <img src="/uploads/products/{{$item->thumb}}" alt="" class="img-fluid">
               </a>
             </div>
             <div class="mt-3">

@@ -103,7 +103,7 @@
                                                 $totalPrice += $price*$item->quantity;
                                             @endphp
                                             <tr>
-                                                <td><img  src="/uploads/{{$item['products']->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px"></td>
+                                                <td><img  src="/uploads/oroducts/{{$item['products']->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px"></td>
                                                 <td class="my-auto">{{$item['products']->name}}</td>
                                                 <td>{{$item->quantity}}</td>
                                                 <td>{{$price}}</td>

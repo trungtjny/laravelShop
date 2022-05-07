@@ -54,7 +54,7 @@
                         <div class="d-flex flex-column trending-item p-3 h-100 border" >
                           <div class=" bg-light  my-auto">
                             <a href="{{route('productDetail', ['id' => $item->id])}}" >
-                              <img src="/uploads/{{$item->thumb}}" alt="" class="img-fluid m-auto">
+                              <img src="/uploads/products/{{$item->thumb}}" alt="" class="img-fluid m-auto">
                             </a>
                           </div>
                           <div class="pt-3 text-center">

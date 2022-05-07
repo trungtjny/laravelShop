@@ -29,7 +29,7 @@
                             @endphp
                             <div class="row product-data mb-3">
                                 <div class="col-md-2 col-4 my-auto">
-                                    <img  src="/uploads/{{$item['products']->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px">
+                                    <img  src="/uploads/products/{{$item['products']->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px">
                                 </div>
                                 <div class="col-md-4 col-8 my-auto">
                                     <a href="{{route('productDetail', ['id' => $item['products']->id])}}"><h6 class="text-"> {{$item['products']->name}}</h6></a>

@@ -87,7 +87,7 @@ class ProductsController extends Controller
             $path = $image->storeAs('products',$image_name,'public_uploads');
 
             
-            $input['thumb'] = "/products/".$image_name;
+            $input['thumb'] = $image_name;
             /* dd($path); */
         }
         $input['sold'] = 0;
@@ -135,12 +135,12 @@ class ProductsController extends Controller
        $item = Product::where('id',$id)->first();
        $input['thumb'] = $item->thumb;
         if($request->hasFile('file')){
-            unlink("uploads/".$item->thumb);
+            unlink("uploads/products/".$item->thumb);
             $image = $request->file('file');
             $type = $request->file('file')->extension();
             $image_name = time().'-product.'.$type;
             $path = $image->storeAs('products',$image_name,'public_uploads');
-            $input['thumb'] = "/products/".$image_name;
+            $input['thumb'] = $image_name;
         }
         $item->name = $input['name'];
         $item->category_id = $input['price'];
@@ -165,7 +165,7 @@ class ProductsController extends Controller
         $id =  $request->input('id');
         $product = Product::where('id',$id)->first();
         if($product){
-            unlink("uploads/".$product->thumb);
+            unlink("uploads/products/". $product->thumb);
             Product::where('id', $id)->delete();
             return response()->json([
                 'error' => false,
