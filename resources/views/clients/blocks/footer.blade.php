@@ -8,7 +8,7 @@
                             <div class="col-lg-3">
                                 <h5>Thông tin</h5>
                                 <hr>
-                                <p>Cửa hàng đồ chơi BabyDream</p>
+                                <p>Cửa hàng đồ chơi BabyStore</p>
                                 <p>KM-10 Trần Phú - Hà Đông - Hà Nội</p>
                                 <p>Giờ mở cửa: 8:00 - 22-00</p>
                             </div>
@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-lg-3">
                                 <h5>Mạng xã hội</h5><hr>
-                                <p>Cửa hàng đồ chơi BabyDream</p>
+                                <p>Cửa hàng đồ chơi Babystore</p>
                                 <p>KM-10 Trần Phú - Hà Đông - Hà Nội</p>
                                 <p>Giờ mở cửa: 8:00 - 22-00</p>
                             </div>

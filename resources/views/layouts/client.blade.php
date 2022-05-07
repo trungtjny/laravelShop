@@ -24,14 +24,14 @@
                 <div class="main main-child">
                     <div class="row">
                         <div class="col-12 text-center mt-5">
-                            <h1 class="py-3">BabyDream</h1>
+                            <h1 class="py-3">BabyStore</h1>
                             <h6>Đồ chơi chính hãng, an toàn cho trẻ!</h6>
                         </div>
                     </div>
                 </div>
             </div>
           </section>
-          <div class="container mt-2">
+         {{--  <div class="container mt-2">
             <div class="row ">
                 <div class="col-12">
                     <div class="d-flex  align-items-center border-top border-bottom" style="height: 60px">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="container mb-5">
             <div class="row gx-3 mt-3">
                 <div class="col-3 d-none d-lg-block ">

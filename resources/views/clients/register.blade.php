@@ -27,14 +27,20 @@
                     @endif
                     <form action="{{route('postRegister')}}" method="POST">
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example1cg">Your Name</label>
-                        <input type="text" id="form3Example1cg" class="form-control form-control-lg"  name="name" value="{{old('name')}}"/>
+                        <label class="form-label" for="fname">Frist Name</label>
+                        <input type="text" id="fname" class="form-control form-control-lg"  name="fname" value="{{old('fname')}}"/>
                         
-                        @if ($errors->any('name'))
-                                <span class="text-danger ml-2">{{$errors->first('name')}}</span>
+                        @if ($errors->any('fname'))
+                                <span class="text-danger ml-2">{{$errors->first('fname')}}</span>
                         @endif
                       </div>
-      
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="">Last Name</label>
+                        <input type="text" id="lname" class="form-control form-control-lg"  name="lname" value="{{old('lname')}}"/>
+                        @if ($errors->any('lname'))
+                                <span class="text-danger ml-2">{{$errors->first('lname')}}</span>
+                        @endif
+                      </div>
                       <div class="form-outline mb-4">
                           <label class="form-label" for="form3Example3cg">Your Email</label>
                         <input type="email" id="form3Example3cg" class="form-control form-control-lg" name="email"   value="{{old('email')}}"/>

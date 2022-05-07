@@ -42,6 +42,12 @@ class ProductControllerClient extends Controller
                 $products = $products->where('name','LIKE','%'.$request->keyword.'%');
                 /*  ->orWhere('description', 'LIKE','%'.$request->keyword.'%'); */
             }
+            if(!empty($request->min) && !empty($request->max)){
+                $products = $products->where("price",">",$request->min);
+                $products = $products->where("price","<",$request->max);
+    
+                /* dd($products->toSql()); */
+            }
             if(!empty($request->sort)){
                 if($request->sort=="gia-giam") $products = $products->orderBy("price", 'desc');
                 if($request->sort=='gia-tang') $products = $products->orderBy("price", 'asc');

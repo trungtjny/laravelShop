@@ -6,7 +6,6 @@
     @include('clients.blocks.sidebar')
 @endsection
 @section('content')
-
 <section class="">
   <div class="bg-light p-3">
     <div class="sort mt-3 ms-3  ">

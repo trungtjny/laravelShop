@@ -3,7 +3,7 @@
       <nav class="navbar navbar-expand-lg  fixed-top p-0 bg-white shadow">
           <div class="container ">
               <div class="logo ">
-                <a class="navbar-brand text-dark" href="#">BabyDream</a>
+                <a class="navbar-brand text-dark" href="#">BabyStore</a>
                 <button class="custom-toggler navbar-toggler my-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon "></span>
                     </button>
@@ -37,6 +37,7 @@
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                               <li><a class="nav-link-header " href="{{route('cart')}}"><i class="fas fa-shopping-cart"></i>  Giỏ hàng</a></li>
                               <li><a class="nav-link-header" href="{{route('myoders')}}"><i class="fas fa-shopping-cart"></i>  Đơn mua</a></li>
+                              <li><a class="nav-link-header" href="{{route('account')}}"><i class="fas fa-sign-out-alt"></i>Tài khoản </a></li>
                               <li><a class="nav-link-header" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i>  Đăng xuất </a></li>
                           </ul>
                       </div>

@@ -22,14 +22,13 @@
               <div class="col-lg-8 m-auto">
                   <div class="row text-center gx-4">
                       <div class="col-lg-4">
-                          <img src="/assets/clients/image/car.png" alt="" class="img-fluid">
+                          <img src="/uploads/layouts/slider1.png" alt="Slider1" class="img-fluid">
                       </div>
                       <div class="col-lg-4">
-                          <img src="/assets/clients/image/plant.png" alt="" class="img-fluid">
-
+                          <img src="/uploads/layouts/slider2.png" alt="Slider2" class="img-fluid">
                       </div>
                       <div class="col-lg-4">
-                          <img src="/assets/clients/image/box.png" alt="" class="img-fluid">
+                          <img src="/uploads/layouts/slider3.png" alt="Slider3" class="img-fluid">
                       </div>
                   </div>
               </div>

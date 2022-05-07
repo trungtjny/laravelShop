@@ -67,11 +67,14 @@ class AuthController extends Controller
 
     public function postRegister(Request $request){
         $request->validate([
-            'name' =>'required|min:6',
+            'fname' =>'required',
+            'lname' =>'required',
             'email'    =>'required|unique:users|email',
             'password' =>'required|confirmed|min:6'
         ]);
-        $input['name'] = $request->input('name');
+        $input['name'] = $request->input('fname')." ".$request->input('lname');
+        $input['fname'] = $request->input('fname');
+        $input['lname'] = $request->input('lname');
         $input['role'] = $request->input('role',4);
         $input['email'] = $request->input('email');
         $input['password'] = Hash::make($request->input('password')) ;

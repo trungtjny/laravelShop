@@ -3,11 +3,11 @@
     {{$title}}
 @endsection
 @section('content')
-<div class="container mt-3">
+<div class="container mt-5">
     <div class="bg-light">
             <div class="row ">
                 <div class="col-12">
-                    <div class="d-flex  align-items-center border-top border-bottom" style="height: 60px">
+                    <div class="d-flex  align-items-center border-top border-bottom bg-secondary text-white" style="height: 60px">
                         <p class="m-0 ps-2">Trang chủ > </p>
                         <p class="m-0 ps-2"> {{$title}} </p>
                     </div>
@@ -28,13 +28,13 @@
                                 else $price = $item['products']->price;
                             @endphp
                             <div class="row product-data mb-3">
-                                <div class="col-1 my-auto">
+                                <div class="col-md-2 col-4 my-auto">
                                     <img  src="/uploads/{{$item['products']->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px">
                                 </div>
-                                <div class="col-4 my-auto">
+                                <div class="col-md-4 col-8 my-auto">
                                     <a href="{{route('productDetail', ['id' => $item['products']->id])}}"><h6 class="text-"> {{$item['products']->name}}</h6></a>
                                 </div>  
-                                <div class="col-2 my-auto">
+                                <div class="col-md-2 col-4 my-auto">
                                     <div class="input-group text-center-mb-3">
                                         @if ($item['products']->amount >= $item->quantity)
                                             <button class="input-group-text decrement-btn changeQuantity">-</button>
@@ -48,8 +48,8 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-2 my-auto text-center">{{$price}} VND </div>
-                                <div class="col-2 text-center my-auto">
+                                <div class="col-md-2 col-4 my-auto text-center">{{$price}}đ </div>
+                                <div class="col-md-2 col-4 text-center my-auto">
                                     <input type="hidden" name="product_id" class="product_id" value="{{$item->product_id}}">
                                     <button class="btn btn-danger btn-delete-cart"> Xoá <i class="far fa-trash-alt"></i></button>
                                 </div>
@@ -63,11 +63,13 @@
                             @endphp
                         @endif
                     </div>
-                    <div class="card-footer bg-yellow-100">
+                    <div class="card-footer ">
+                        @if ($cartItem->count())
                         Tổng cộng: {{$totalPrice}} VND;
                         <a class="btn btn-cart float-end" href="{{route('checkout')}}" >
                             <i class="fa fa-shopping-cart" ></i> Thanh toán
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>

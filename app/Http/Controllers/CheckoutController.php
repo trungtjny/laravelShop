@@ -34,35 +34,37 @@ class CheckoutController extends Controller
        $order = Order::create($input); 
 
        $cartItem = Cart::where('user_id',Auth::id())->get();
-
-       foreach($cartItem as $item){
-           if($item->products->amount >= $item->quantity){
-                ($item->products->active_sale) ? $price = $item->products->price_sale : $price = $item->products->price;
-               OrderItem::create([
-                    'order_id' => $order->id,
-                    'product_id' =>$item->product_id,
-                    'quantity' =>$item->quantity,
-                    'price' => $price,
-               ]);
-               $item->delete();
-               $productItem = Product::where('id',$item->products->id)->first();
-               $productItem->amount = $item->products->amount -$item->quantity;
-               $productItem->sold = $item->products->sold + $item->quantity;
-               $productItem->update();
-
-               $user = User::where('id',Auth::id())->first();
-               if($user->role > 0){
-                $user->fname = $input['fname'];
-                $user->lname = $input['lname'];
-                $user->address = $input['address'];
-                $user->city = $input['city'];
-                $user->phone = $input['phone'];
-                $user->save();
-               }
-               
-           }
-       }
-       return redirect()->route('myoders');
+        if(count($cartItem)){
+            foreach($cartItem as $item){
+                if($item->products->amount >= $item->quantity){
+                     ($item->products->active_sale) ? $price = $item->products->price_sale : $price = $item->products->price;
+                    OrderItem::create([
+                         'order_id' => $order->id,
+                         'product_id' =>$item->product_id,
+                         'quantity' =>$item->quantity,
+                         'price' => $price,
+                    ]);
+                    $item->delete();
+                    $productItem = Product::where('id',$item->products->id)->first();
+                    $productItem->amount = $item->products->amount -$item->quantity;
+                    $productItem->sold = $item->products->sold + $item->quantity;
+                    $productItem->update();
+     
+                    $user = User::where('id',Auth::id())->first();
+                    if($user->role > 0){
+                     $user->fname = $input['fname'];
+                     $user->lname = $input['lname'];
+                     $user->address = $input['address'];
+                     $user->city = $input['city'];
+                     $user->phone = $input['phone'];
+                     $user->save();
+                    }
+                    
+                }
+            }
+            return redirect()->route('myoders');
+        }
+        else return back()->with("error","Lỗi - đặt hàng không thành công quý khách vui lòng kiểm tra lại");
 
 
     }

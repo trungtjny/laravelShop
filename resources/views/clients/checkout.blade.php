@@ -3,7 +3,7 @@
     {{$title}}
 @endsection
 @section('content')
-<div class="container mt-3  ">
+<div class="container mt-5  ">
     <div class="bg-light">
         @if (session('msg'))
         <div class="alert alert-success" role="alert">
@@ -16,7 +16,7 @@
     <div class="mb-3">
         <div class="row ">
             <div class="col-12">
-                <div class="d-flex  align-items-center border-top border-bottom" style="height: 60px">
+                <div class="d-flex  align-items-center border-top border-bottom bg-secondary text-white" style="height: 60px">
                     <p class="m-0 ps-2">Trang chủ > </p>
                     <p class="m-0 ps-2"> {{$title}} </p>
                 </div>
@@ -25,7 +25,7 @@
     </div> 
     <form action="{{route('order')}}" method="POST">
         <div class="row " >
-            <div class="col-7">
+            <div class="col-md-7 col-12">
                 <div class="card">
                     <div class="card-body">
                         <h6>Thông tin giao hàng</h6>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-5">
+            <div class="col-md-5 col-12">
                 <div class="card">
                     <div class="card-body">
                         <h6>Đơn hàng:</h6>

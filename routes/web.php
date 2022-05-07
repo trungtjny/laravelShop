@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DesignController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\ShipperController;
@@ -52,6 +53,8 @@ Route::middleware('auth')->group(function (){
     Route::get('/my-orders',[UserController::class,'my_orders'])->name('myoders');
     Route::get('/my-orders/{id}',[UserController::class,'view_order'])->name('orderdetail');
     Route::post('/checkout',[CheckoutController::class,'order'])->name('order');
+    Route::get('/my-account',[UserController::class,'view_profile'])->name('account');
+    Route::post('/update-account',[UserController::class,'edit_user'])->name('update-profile');
     
 });
 
@@ -104,6 +107,11 @@ Route::name('admin.')->middleware('admin')->group(function () {
             Route::post('/update/{id}', [CategoryController::class, 'update'])->name('category.update');
 
             Route::delete('/destroy', [CategoryController::class, 'destroy'])->name('category.destroy');
+        });
+        Route::prefix('design')->group(function () {
+            Route::get('/banner', [DesignController::class, 'banner'])->name('design.banner');
+            Route::get('/slider', [DesignController::class, 'sliders'])->name('design.slider');
+
         });
 
         Route::prefix('order')->group(function () {
