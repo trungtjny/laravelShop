@@ -10,17 +10,14 @@ use Illuminate\Support\Facades\Auth;
 class ProductControllerClient extends Controller
 {
     public function index(Request $request){
-
         $products = Product::where('active','>',0)->where("amount",'>',0);
+        if(isset($request->min) && isset($request->max)){
+            $products = $products->where("price",">",$request->min);
+            $products = $products->where("price","<",$request->max);
+        }
         if(!empty($request->keyword)){
             $products = $products->where('name','LIKE','%'.$request->keyword.'%')
              ->orWhere('description', 'LIKE','%'.$request->keyword.'%');
-        }
-        if(!empty($request->min) && !empty($request->max)){
-            $products = $products->where("price",">",$request->min);
-            $products = $products->where("price","<",$request->max);
-
-            /* dd($products->toSql()); */
         }
         if(!empty($request->sort)){
             if($request->sort=="gia-giam") $products = $products->orderBy("price", 'desc');
@@ -29,7 +26,6 @@ class ProductControllerClient extends Controller
             if($request->sort=='san-pham-moi') $products = $products->orderBy("created_at", 'desc');
             if($request->sort=="ban-chay-nhat") $products = $products->orderBy("sold", 'desc');
         }
-        
         $this ->data['category'] = Category::all();
         $this ->data['title'] = 'Sản phẩm';
         $this ->data['products'] = $products->with('category')->paginate(12);
@@ -42,7 +38,7 @@ class ProductControllerClient extends Controller
             if(!empty($request->keyword)){
                 $products = $products->where('name','LIKE','%'.$request->keyword.'%');
             }
-            if(!empty($request->min) && !empty($request->max)){
+            if(isset($request->min) && isset($request->max)){
                 $products = $products->where("price",">",$request->min);
                 $products = $products->where("price","<",$request->max);
             }
