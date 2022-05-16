@@ -9,11 +9,19 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index(){
-        $data = Order::with('orderUser','orderItems')->orderBy('status', 'asc')->paginate(4);;
+    public function index(Request $request){
+        $query = Order::where('id','>','0');
+        /* $data = Order::with('orderUser','orderItems')->orderBy('status', 'asc')->paginate(10); */
+        if(isset($request->phone)) {
+            $query = $query->where('phone','LIKE', "%".$request->phone."%");
+        }
+        if(isset($request->date_form ) && $request->date_to){
+            $query = $query->whereBetween('created_at',[$request->date_from, $request->date_to]);
+        }
+        /* dd($query->toSql()); */
         return view('Admin.order.index',[
             'title' => 'Danh sách đơn hàng',
-            'orders' => $data
+            'orders' => $query->orderBy('status', 'asc')->paginate(10)
         ]);
     }
     public function finish(){

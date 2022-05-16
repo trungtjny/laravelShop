@@ -27,13 +27,13 @@ class ProductsController extends Controller
                     array_push($arrCate, $item['id']);
                 }
                 array_push($arrCate,  intval($request->category));
-                $products = Product::whereIn('category_id',$arrCate);
+                $products = $products->whereIn('category_id',$arrCate);
             } 
             else 
-            $products = Product::where('category_id',$request->category);
+            $products =  $products->where('category_id',$request->category);
         }
         if(!empty($request->keyword)){
-            $products = Product::where('name','LIKE','%'.$request->keyword.'%')
+            $products =  $products->where('name','LIKE','%'.$request->keyword.'%')
             /* ->orWhere('description', 'LIKE','%'.$request->keyword.'%') */;
         }
         return view('Admin.product.index',[

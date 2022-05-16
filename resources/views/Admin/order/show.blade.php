@@ -25,26 +25,30 @@
                                         $y = 'class= "order-tracking completed"';
                                         $n = 'class= "order-tracking"';
                                     @endphp
-                                    <div @php if($order->status >= 0) echo $y; else echo $n; @endphp >
-                                        <span class="is-complete "></span>
-                                        <p>Đặt hàng<br><span>{{$order->created_at}}</span></p>
-                                    </div>
-                                    <div @php if($order->status >= 1) echo $y; else echo $n; @endphp>
-                                        <span class="is-complete"></span>
-                                        <p>Xác nhận<br><span>{{($order->status == 1) ? $order->updated_at : ""}}</span></p>
-                                    </div>
-                                    <div @php if($order->status >= 2) echo $y; else echo $n; @endphp>
-                                        <span class="is-complete"></span>
-                                        <p>Chuyển tới người vận chuyển<br><span>{{($order->status == 2) ? $order->updated_at : ""}}</span></p>
-                                    </div>
-                                    <div @php if($order->status >= 3) echo $y; else echo $n; @endphp>
-                                        <span class="is-complete"></span>
-                                        <p>Giao hàng<br><span>{{($order->status == 3) ? $order->updated_at : ""}}</span></p>
-                                    </div>
-                                    <div @php if($order->status >= 4) echo $y; else echo $n; @endphp>
-                                        <span class="is-complete"></span>
-                                        <p>Hoàn tất<br><span>{{($order->status == 4 || $order->status == 5) ? $order->updated_at : ""}}</span></p>
-                                    </div>
+                                    @if ($order->status !=6){
+                                        <div @php if($order->status >= 0 && $order->status != 6) echo $y; else echo $n; @endphp >
+                                            <span class="is-complete "></span>
+                                            <p>Đặt hàng<br><span>{{$order->created_at}}</span></p>
+                                        </div>
+                                        <div @php if($order->status >= 1 && $order->status != 6) echo $y; else echo $n; @endphp>
+                                            <span class="is-complete"></span>
+                                            <p>Xác nhận<br><span>{{($order->status == 1) ? $order->updated_at : ""}}</span></p>
+                                        </div>
+                                        <div @php if($order->status >= 2 && $order->status != 6) echo $y; else echo $n; @endphp>
+                                            <span class="is-complete"></span>
+                                            <p>Chuyển tới người vận chuyển<br><span>{{($order->status == 2) ? $order->updated_at : ""}}</span></p>
+                                        </div>
+                                        <div @php if($order->status >= 3 && $order->status != 6) echo $y; else echo $n; @endphp>
+                                            <span class="is-complete"></span>
+                                            <p>Giao hàng<br><span>{{($order->status == 3) ? $order->updated_at : ""}}</span></p>
+                                        </div>
+                                        <div @php if($order->status >= 4 && $order->status != 6) echo $y; else echo $n; @endphp>
+                                            <span class="is-complete"></span>
+                                            <p>Hoàn tất<br><span>{{($order->status == 4 || $order->status == 5) ? $order->updated_at : ""}}</span></p>
+                                        </div>
+                                    }
+                                    @else <h4 class="text-danger"> Đơn hàng đã bị huỷ - thời gian: {{$order->updated_at}}</h4>    
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-2"></div>

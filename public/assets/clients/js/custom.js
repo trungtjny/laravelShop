@@ -55,11 +55,6 @@ $(document).ready(function() {
     $('.btn-delete-cart').click(function(e) {
         e.preventDefault();
         let product_id = $(this).closest('.product-data').find('.product_id').val();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
         $.ajax({
             type: "POST",
             url: "/remove-cart-item",
@@ -90,6 +85,42 @@ $(document).ready(function() {
             type: "POST",
             url: "/update-cart",
             data: datas,
+            dataType: "JSON",
+            success: function(response) {
+                showResult(response);
+            }
+        });
+    });
+    $('#btn-update-order').click(function(e) {
+        e.preventDefault();
+        let input = {
+            'fname': $("#fname").val(),
+            'lname': $("#lname").val(),
+            'id': $("#id").val(),
+            'phone': $("#phone").val(),
+            'city': $("#city").val(),
+            'address': $("#address").val(),
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/my-orders/update",
+            data: input,
+            dataType: "JSON",
+            success: function(response) {
+                showResult(response);
+            }
+        });
+    });
+    $('#btn-remove-order').click(function(e) {
+        e.preventDefault();
+        let input = {
+            'id': $("#id").val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: "/my-orders/remove",
+            data: input,
             dataType: "JSON",
             success: function(response) {
                 showResult(response);

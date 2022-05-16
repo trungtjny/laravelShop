@@ -11,10 +11,9 @@ use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\ShipperController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
-
+use App\Http\Controllers\OrderControllerClient;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductControllerClient;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -50,8 +49,10 @@ Route::middleware('auth')->group(function (){
     Route::post('/remove-cart-item',[CartController::class,'destroy']);
     Route::post('/update-cart',[CartController::class,'update']);
     Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
-    Route::get('/my-orders',[UserController::class,'my_orders'])->name('myoders');
-    Route::get('/my-orders/{id}',[UserController::class,'view_order'])->name('orderdetail');
+    Route::get('/my-orders',[OrderControllerClient::class,'my_orders'])->name('myoders');
+    Route::get('/my-orders/{id}',[OrderControllerClient::class,'view_order'])->name('orderdetail');
+    Route::post('/my-orders/update',[OrderControllerClient::class,'update_order'])->name('update_order');
+    Route::post('/my-orders/remove',[OrderControllerClient::class,'remove_order'])->name('remove_order');
     Route::post('/checkout',[CheckoutController::class,'order'])->name('order');
     Route::get('/my-account',[UserController::class,'view_profile'])->name('account');
     Route::post('/update-account',[UserController::class,'edit_user'])->name('update-profile');
@@ -110,6 +111,7 @@ Route::name('admin.')->middleware('admin')->group(function () {
         });
         Route::prefix('design')->group(function () {
             Route::get('/banner', [DesignController::class, 'banner'])->name('design.banner');
+            Route::post('/banner', [DesignController::class, 'create_banner'])->name('design.banner.post');
             Route::get('/slider', [DesignController::class, 'sliders'])->name('design.slider');
 
         });

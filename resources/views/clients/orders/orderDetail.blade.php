@@ -3,36 +3,44 @@
     {{$title}}
 @endsection
 @section('content')
-<div class="container mt-3">
+<div class="container mt-5">
+
     <div class="card">
-        <div class="cart-header bg-warning py-2">
-            <h5 class="m-1 px-2 text-dark"><a class="text-dark" href="{{route('home')}}">Trang chủ</a> / <a class="text-dark" href="{{route('cart')}}">Đơn mua </a>/ chi tiết</h5>
+        <div class="row ">
+            <div class="col-12">
+                <div class="d-flex  align-items-center border-top border-bottom bg-secondary text-white" style="height: 60px">
+                    <p class="m-0 ps-2">Trang chủ > </p>
+                    <p class="m-0 ps-2">Sản phẩm > </p>
+                    <p class="m-0 ps-2"> {{$title}} sản phẩm</p>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
                     <h4>Thông tin nhận hàng:</h4>
-                    <form action="">
+                    <form action="{{route('update_order')}}" method="POST">
                         @csrf
                         <div class="col-8 mb-3">
                             <label for="fname"><h6>Họ-tên đệm:</h6></label>
-                            <input type="text" class="form-control" value="{{$order->fname}}">
+                            <input type="text" class="form-control" name="fname" id="fname" value="{{$order->fname}}">
+                            <input type="text" class="form-control" name="id" id="id" value="{{$order->id}} " hidden>
                         </div>
                         <div class="col-8 mb-3">
-                            <label for="fname"><h6>Tên:</h6></label>
-                            <input type="text" class="form-control" value="{{$order->lname}}">
+                            <label for="lname"><h6>Tên:</h6></label>
+                            <input type="text" name="lname" class="form-control" id="lname" value="{{$order->lname}}">
                         </div>
                         <div class="col-8 mb-3">
-                            <label for="fname"><h6>Số điện thoại</h6></label>
-                            <input type="text" class="form-control" value="{{$order->phone}}">
+                            <label for="phone"><h6>Số điện thoại</h6></label>
+                            <input type="text" name="phone" class="form-control" id="phone" value="{{$order->phone}}">
                         </div>
                         <div class="col-8 mb-3">
-                            <label for="fname"><h6>Thành phố</h6></label>
-                            <input type="text" class="form-control" value="{{$order->city}}">
+                            <label for="city"><h6>Thành phố</h6></label>
+                            <input type="text"  name="city" class="form-control" id="city" value="{{$order->city}}">
                         </div>
                         <div class="col-8 mb-3">
-                            <label for="fname"><h6>Địa chỉ nhận hàng</h6></label>
-                            <input type="text" class="form-control" value="{{$order->address}}">
+                            <label for="address"><h6>Địa chỉ nhận hàng</h6></label>
+                            <input type="text" name="address" class="form-control" id="address" value="{{$order->address}}">
                         </div>
                         <div class="">
                             @switch($order->status)
@@ -51,6 +59,9 @@
                                 @case(5)
                                         @php $status = 'Giao hàng thất bại';@endphp
                                     @break
+                                @case(6)
+                                    @php $status = 'Đơn huỷ';@endphp
+                                @break
                                 @default
                                     @php $status = 'Chưa xác nhận'; @endphp
                             @endswitch
@@ -60,11 +71,13 @@
                             if($order->status == 0) $disabled = ''; else $disabled = "disable";  
                         @endphp
                         <div class="mb-3">
-                            <i>(Lưu ý: Chỉ có thể thay đổi thông tin đơn hàng trong trạng thái chưa xác nhận, nếu cần thay đổi thông tin quý khách liên hệ tổng đài 1000011 để được hỗ trợ)</i>
+                            <i>(Lưu ý: Chỉ có thể thay đổi thông tin đơn hàng trong trạng thái chưa xác nhận, nếu cần thay đổi thông tin quý khách liên hệ tổng đài 1234567890 để được hỗ trợ)</i>
                         </div>
                         <div class="">
-                            <button class="btn btn-warning px-5" {{$disabled}}>Cập nhật</button>
-                            <button class="btn btn-danger  mx-5 px-5" {{$disabled}} >Xoá</button>
+                            @if ($order->status == 0)
+                            <button type="submit" class="btn btn-warning px-5" id="btn-update-order" >Cập nhật</button>
+                            <button type="button" class="btn btn-danger  mx-5 px-5" id="btn-remove-order"  >Huỷ đơn</button>
+                            @endif
                         </div>
                         
                     </form>
@@ -81,7 +94,7 @@
                                             <th>&nbsp;</th>
                                             <th>Tên sản phẩm</th>
                                             <th>Số lượng</th>
-                                            <th>Giá</th>
+                                            <th>Đơn giá</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -90,7 +103,7 @@
                                             
                                         @endphp
                                         @foreach ($order->orderItems as $item)
-                                            @if ($item->products->amount >= $item->quantity)
+                                            @if ( $item->quantity)
                                                 @php
                                                     ($item->products->active_sale) ? $price = $item->products->price_sale : $price = $item->products->price;
                                                     $totalPrice += $price*$item->quantity;
@@ -99,7 +112,7 @@
                                                     <td><img  src="/uploads/products/{{$item->products->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px"></td>
                                                     <td class="my-auto">{{$item->products->name}}</td>
                                                     <td>{{$item->quantity}}</td>
-                                                    <td>{{$price}}</td>
+                                                    <td>{{number_format($price)}}đ</td>
                                                 </tr>
                                             @endif
                                         @endforeach
@@ -109,7 +122,7 @@
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-6  d-flex align-items-center" style="">
-                                        Số tiền cần thanh toán: {{number_format($totalPrice)}}VND
+                                        Số tiền cần thanh toán: {{number_format($totalPrice)}}VNĐ
                                         <input type="number" hidden name="totalPrice" value="{{$totalPrice}}" class="form-control" >
                                     </div>
                                 </div>

@@ -15,6 +15,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('css')
+    <style>
+        .main{
+            background: url(../../../uploads/layouts/{{$design->banner}}) no-repeat;
+            background-size: cover;
+            height: 100vh;
+            width: 100%;
+            background-size: 1296px 600px;
+        }
+    </style>
 </head>
 <body>
     <div>

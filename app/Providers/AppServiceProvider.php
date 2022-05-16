@@ -7,6 +7,7 @@ use Illuminate\Pagination\Paginator;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use App\Models\Design;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -35,6 +36,9 @@ class AppServiceProvider extends ServiceProvider
             }else {
                 View::share('cartQuantity',0);
             }
+            $design = Design::first();
+            View::share("design",$design);
+
         });
         Paginator::useBootstrap();
     }

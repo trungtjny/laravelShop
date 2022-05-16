@@ -12,9 +12,20 @@
                 @if (Session::has('error'))
                     <div class="alert alert-danger text-center ">{{Session::get('error')}}</div>
             @endif
-            <div class="d-flex justify-content-end">
-                <a href="{{route('admin.products.create')}}"  class="btn btn-info ml-3 " >Thêm sản phẩm</a>
-                {{-- <a href="./"  class="btn btn-info ml-3 " >Thêm sản phẩm</a> --}}
+            <div>
+                <form action="" method="GET" class="d-flex align-items-center">
+                    <div class="mx-5" >
+                        <label>Tìm kiếm: </label>
+                        <input type="text" name="phone" id="phone" placeholder="Số điện thoại khách hàng" class="rounded px-3">
+                    </div>
+                    <div class="">
+                        <label for="" class="ms-3">Ngày: </label>
+                    <input type="date" name="date_from" id="date_from" class="rounded px-3">
+                    <label for=""> Đến: </label>
+                    <input type="date" name="date_to" id="date_to" class="rounded px-3">
+                    <button type="submit" class="btn btn-success px-3 "> Tìm kiếm</button>
+                    </div>
+                </form>
             </div>
       <table class="table ">
         <thead>
@@ -57,6 +68,9 @@
                     @case(5)
                             @php $status = 'Giao hàng thất bại';@endphp
                         @break
+                    @case(6)
+                        @php $status = 'Đơn bị huỷ';@endphp
+                    @break
                     @default
                         @php $status = 'Chưa xác nhận'; @endphp
                 @endswitch

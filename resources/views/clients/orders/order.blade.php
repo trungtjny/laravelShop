@@ -17,6 +17,7 @@
         </div>
     </div>
       <div class="card-body">
+        @if (count($orders))
           <table class="table">
               <thead class="thead-dark">
                 <tr>
@@ -45,6 +46,9 @@
                           @case(5)
                               @php $status = 'Giao hàng thất bại';@endphp
                           @break
+                          @case(6)
+                              @php $status = 'Đơn huỷ';@endphp
+                          @break
                         @default
                         @php $status = 'Chưa xác nhận'; @endphp
                     @endswitch
@@ -57,7 +61,10 @@
                 </tr>
                 @endforeach
               </tbody>
-            </table>
+          </table>
+        @else 
+          <i><h5>Không có đơn đặt hàng</h5></i>    
+        @endif
       </div>
     </div>
 </div>

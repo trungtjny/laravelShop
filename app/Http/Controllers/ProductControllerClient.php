@@ -11,7 +11,7 @@ class ProductControllerClient extends Controller
 {
     public function index(Request $request){
 
-        $products = Product::where('active','>',0);
+        $products = Product::where('active','>',0)->where("amount",'>',0);
         if(!empty($request->keyword)){
             $products = $products->where('name','LIKE','%'.$request->keyword.'%')
              ->orWhere('description', 'LIKE','%'.$request->keyword.'%');
@@ -38,15 +38,13 @@ class ProductControllerClient extends Controller
     public function getCategory($id,Request $request){
         
             $products = $this->getChild($id);
+            /* dd($products->toSql()); */
             if(!empty($request->keyword)){
                 $products = $products->where('name','LIKE','%'.$request->keyword.'%');
-                /*  ->orWhere('description', 'LIKE','%'.$request->keyword.'%'); */
             }
             if(!empty($request->min) && !empty($request->max)){
                 $products = $products->where("price",">",$request->min);
                 $products = $products->where("price","<",$request->max);
-    
-                /* dd($products->toSql()); */
             }
             if(!empty($request->sort)){
                 if($request->sort=="gia-giam") $products = $products->orderBy("price", 'desc');
@@ -71,18 +69,17 @@ class ProductControllerClient extends Controller
         ]);
     }
     public function getChild($id){
-        $p = Product::where('id','>',0);
+        $p = Product::where("amount",'>',0);
         $cateChild = Category::where('parent_id',$id)->get(['id']);
             if(count($cateChild)){
                 $arrCate = [];
                 foreach ($cateChild as $item){
                     array_push($arrCate, $item['id']);
                 }
-                $p = Product::whereIn('category_id',$arrCate);
+                $p = $p->whereIn('category_id',$arrCate);
             } 
             else 
-            $p = Product::where('category_id',$id);
-
+            $p = $p->where('category_id',$id);
             return $p;
     }
 }

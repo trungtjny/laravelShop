@@ -83,4 +83,5 @@ class CheckoutController extends Controller
             'phone.max' => 'Số điện thoại bạn nhập không chính xác'
         ] */);
     }
+    
 }
