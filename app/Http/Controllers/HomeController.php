@@ -14,7 +14,6 @@ class HomeController extends Controller
         $this ->data['title'] = 'Trang chủ ';
         $this ->data['category'] = Category::all();
         $this ->data['products'] = Product::orderBy('sold', 'desc')->limit(6)->get();
-        $this ->data['design'] = Design::where('id',1)->first();
         return view('clients.home',$this->data);
     }
 }
