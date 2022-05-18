@@ -36,6 +36,7 @@ class ProductsController extends Controller
             $products =  $products->where('name','LIKE','%'.$request->keyword.'%')
             /* ->orWhere('description', 'LIKE','%'.$request->keyword.'%') */;
         }
+        return json_encode($products->with('category')->paginate(5));
         return view('Admin.product.index',[
             'title' => 'Danh sách sản phẩm',
             'products' =>$products->with('category')->paginate(5),

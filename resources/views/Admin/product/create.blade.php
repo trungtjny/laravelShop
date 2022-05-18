@@ -31,7 +31,7 @@
                                 <div class="form-group">
                                     <label for="category_id">Danh mục sản phẩm</label>
                                         <select class="form-control" name="category_id" id="category_id">
-                                            <option value="0" selected>Chọn danh mục</option>
+                                            <option value="" selected>Chọn danh mục</option>
                                             @php
                                                     $html ='';
                                                     $sub ='|---';
@@ -53,8 +53,8 @@
                                                 echo $html; 
                                             @endphp
                                         </select>
-                                        @if ($errors->any('category'))
-                                            <span class="text-danger">{{$errors->first('category')}}</span>
+                                        @if ($errors->any('category_id'))
+                                            <span class="text-danger">{{$errors->first('category_id')}}</span>
                                         @endif
                                 </div>
                             </div>

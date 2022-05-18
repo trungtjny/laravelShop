@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $input['role'] = 1;
         $input['email'] = 'admin2@localhost.com';
         $input['password'] = Hash::make('123456') ;
-        User::create($input);
+        User::create($input); 
+        $this->call(categories::class); 
+        $this->call(products::class);
     }
 }

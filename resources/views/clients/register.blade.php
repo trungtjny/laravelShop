@@ -9,14 +9,14 @@
     
 </head>
 <body>
-    <section class="vh-100 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+    <section class="vh-100 " style="background-image: url('/uploads/layouts/register.jpg') ; background-repeat: no-repeat; background-size: cover;">
         <div class="mask d-flex align-items-center h-100 gradient-custom-3">
           <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
               <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                 <div class="card" style="border-radius: 15px;">
                   <div class="card-body p-5">
-                    <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+                    <h2 class="text-uppercase text-center mb-5">Đăng ký tài khoản</h2>
                     @if (session('msg'))
                         <div class="alert alert-success" role="alert">
                             {{ session('msg') }}
@@ -27,7 +27,7 @@
                     @endif
                     <form action="{{route('postRegister')}}" method="POST">
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="fname">Frist Name</label>
+                        <label class="form-label" for="fname">Họ - Tên đệm</label>
                         <input type="text" id="fname" class="form-control form-control-lg"  name="fname" value="{{old('fname')}}"/>
                         
                         @if ($errors->any('fname'))
@@ -35,14 +35,14 @@
                         @endif
                       </div>
                       <div class="form-outline mb-4">
-                        <label class="form-label" for="">Last Name</label>
+                        <label class="form-label" for="">Tên</label>
                         <input type="text" id="lname" class="form-control form-control-lg"  name="lname" value="{{old('lname')}}"/>
                         @if ($errors->any('lname'))
                                 <span class="text-danger ml-2">{{$errors->first('lname')}}</span>
                         @endif
                       </div>
                       <div class="form-outline mb-4">
-                          <label class="form-label" for="form3Example3cg">Your Email</label>
+                          <label class="form-label" for="form3Example3cg">Email</label>
                         <input type="email" id="form3Example3cg" class="form-control form-control-lg" name="email"   value="{{old('email')}}"/>
                         @if ($errors->any('email'))
                             <span class="text-danger ml-2">{{$errors->first('email')}}</span>
@@ -50,7 +50,7 @@
                       </div>
       
                       <div class="form-outline mb-4">
-                          <label class="form-label" for="form3Example4cg">Password</label>
+                          <label class="form-label" for="form3Example4cg">Mật khẩu</label>
                           <input type="password" id="form3Example4cg" class="form-control form-control-lg" name="password"  value="{{old('password')}}" />
                         @if ($errors->any('password'))
                             <span class="text-danger ml-2">{{$errors->first('password')}}</span>
@@ -58,7 +58,7 @@
                       </div>
       
                       <div class="form-outline mb-4">
-                          <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                          <label class="form-label" for="form3Example4cdg">Nhập lại mật khẩu</label>
                         <input type="password" id="form3Example4cdg" class="form-control form-control-lg" name="password_confirmation"  value="{{old('password_confirmation')}}"/>
                         @if ($errors->any('password_confirmation'))
                             <span class="text-danger ml-2">{{$errors->first('password_confirmation')}}</span>
@@ -70,7 +70,7 @@
                       <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-success btn-block btn-lg  text-light" style="font-weight: bold">Đăng ký tài khoản</button>
                       </div>
-                      <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{{route('login')}}" class="fw-bold text-body"><u>Login here</u></a></p>
+                      <p class="text-center text-muted mt-5 mb-0">Đã có  tài khoản? <a href="{{route('login')}}" class="fw-bold text-body"><u>Đăng nhập</u></a></p>
                       @csrf
                     </form>
       

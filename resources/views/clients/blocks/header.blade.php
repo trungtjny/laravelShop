@@ -46,7 +46,7 @@
                           <a class="nav-link-header " href="{{route('login')}}">Đăng nhập</a>
                       </li>
                       <li class="nav-item">
-                          <a class=" nav-link-header" href="#">Đăng ký</a>
+                          <a class=" nav-link-header" href="{{route('register')}}">Đăng ký</a>
                       </li> 
                     @endif
 

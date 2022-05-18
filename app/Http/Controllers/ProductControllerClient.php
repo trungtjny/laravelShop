@@ -22,7 +22,7 @@ class ProductControllerClient extends Controller
         if(!empty($request->sort)){
             if($request->sort=="gia-giam") $products = $products->orderBy("price", 'desc');
             if($request->sort=='gia-tang') $products = $products->orderBy("price", 'asc');
-            if($request->sort=='khuyen-mai') $products = $products->orderBy("active_sale", 'asc');
+            if($request->sort=='dang-khuyen-mai') $products = $products->where("active_sale", '1');
             if($request->sort=='san-pham-moi') $products = $products->orderBy("created_at", 'desc');
             if($request->sort=="ban-chay-nhat") $products = $products->orderBy("sold", 'desc');
         }
