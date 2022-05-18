@@ -40,8 +40,6 @@ class AppServiceProvider extends ServiceProvider
             }
             $design = Layout::where('id',1)->first();
             View::share("design",$design);
-            dd($design->banner); 
-
         });
         Paginator::useBootstrap();
     }
