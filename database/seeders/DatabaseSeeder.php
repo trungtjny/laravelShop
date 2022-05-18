@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $input['name'] = 'Admin';
         $input['role'] = 1;
-        $input['email'] = 'admin2@localhost.com';
+        $input['email'] = 'admin3@localhost.com';
         $input['password'] = Hash::make('123456') ;
         User::create($input); 
         DB::table('designs')->insert(['id'=>null,'banner'=> "banner.jpg","slider1" =>'slider1.png',"slider2" =>'slider2.png',"slider3" =>'slider3.png',"slogan"=>"BabyShop - Thế giới đồ chơi an toàn cho trẻ"]);
