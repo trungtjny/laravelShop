@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         User::create($input); 
         DB::table('designs')->insert(['id'=>null,'banner'=> "banner.jpg","slider1" =>'slider1.png',"slider2" =>'slider2.png',"slider3" =>'slider3.png',"slogan"=>"BabyShop - Thế giới đồ chơi an toàn cho trẻ"]);
         $this->call(categories::class); 
-        /* $this->call(products::class); */
+        $this->call(products::class); 
     }
 }
