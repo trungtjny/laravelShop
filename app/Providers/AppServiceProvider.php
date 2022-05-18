@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
                 View::share('cartQuantity',0);
             }
             $design = Layout::where('id',1)->get();
-            View::share("design",$design[0]); 
+            View::share("design",$design); 
 
         });
         Paginator::useBootstrap();
