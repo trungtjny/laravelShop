@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Design;
 class ProductControllerClient extends Controller
 {
     public function index(Request $request){
@@ -28,6 +28,7 @@ class ProductControllerClient extends Controller
         }
         $this ->data['category'] = Category::all();
         $this ->data['title'] = 'Sản phẩm';
+        $this ->data['design'] = Design::where('id',1)->first();
         $this ->data['products'] = $products->with('category')->paginate(12);
         return view('clients.products',$this->data);
     }
@@ -52,6 +53,7 @@ class ProductControllerClient extends Controller
             }
         $this ->data['category'] = Category::all();
         $this ->data['title'] = 'Sản phẩm';
+        $this ->data['design'] = Design::where('id',1)->first();
         $this ->data['products'] = $products->with('category')->paginate(12);
         return view('clients.products',$this->data);
     }
