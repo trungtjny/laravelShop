@@ -14,5 +14,6 @@ class Design extends Model
         'slider2',
         'slider3',
         'slogan',
+        'id',
     ];
 }
