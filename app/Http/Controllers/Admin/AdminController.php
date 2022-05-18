@@ -12,9 +12,9 @@ class AdminController extends Controller
 {
     public function index(){
         $list = $this->getListDayInMonth();
-        $arrMoney = Order::where('status',4)->whereMonth('created_at',date('m'))
-            ->select(DB::raw('sum(totalPrice) as totalMoney'), DB::raw('DATE(created_at) day'))
-            ->groupBY('day')->get()->toArray();
+        $arrMoney = Order::where("status",4)->whereMonth("created_at",date("m"))
+            ->select(DB::raw("sum(totalPrice) as totalMoney"), DB::raw("DATE(created_at) day"))
+            ->groupBY("day")->get()->toArray();
         /* dd($s->toArray()); */
        $listMoney = [];
        $totalMoney =0;
