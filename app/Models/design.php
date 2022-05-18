@@ -9,11 +9,11 @@ class Design extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'banner',
-        'slider1',
-        'slider2',
-        'slider3',
-        'slogan',
         'id',
+        'baner',
+        'slider1',
+        'slider1',
+        'slider1',
+        'slogan',
     ];
 }
