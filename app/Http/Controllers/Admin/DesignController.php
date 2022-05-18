@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Design;
+use App\Models\Layout;
 use Illuminate\Http\Request;
 
 class DesignController extends Controller
@@ -26,7 +26,7 @@ class DesignController extends Controller
             $image = $request->file($name);
             $type = $request->file($name)->extension();
             $image_name = $name.'.'.$type;
-            $design = Design::first();
+            $design = Layout::first();
             if($design){
                 unlink("uploads/layouts/".$design->$name);
                 $design->$name = $image_name;

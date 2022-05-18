@@ -7,7 +7,9 @@ use Illuminate\Pagination\Paginator;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
-use App\Models\Design;
+
+use App\Models\Layout;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -36,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
             }else {
                 View::share('cartQuantity',0);
             }
-            $design = Design::where('id',1)->get();
+            $design = Layout::where('id',1)->get();
             View::share("design",$design[0]); 
 
         });
