@@ -28,6 +28,7 @@ class ProductControllerClient extends Controller
         }
         $this ->data['category'] = Category::all();
         $this ->data['title'] = 'Sản phẩm';
+        $this ->data['design'] = Design::where('id',1)->first();
         $this ->data['products'] = $products->with('category')->paginate(12);
         return view('clients.products',$this->data);
     }
@@ -52,6 +53,7 @@ class ProductControllerClient extends Controller
             }
         $this ->data['category'] = Category::all();
         $this ->data['title'] = 'Sản phẩm';
+        $this ->data['design'] = Design::where('id',1)->first();
         $this ->data['products'] = $products->with('category')->paginate(12);
         return view('clients.products',$this->data);
     }
