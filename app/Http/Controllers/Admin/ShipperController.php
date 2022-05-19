@@ -42,7 +42,7 @@ class ShipperController extends Controller
         $order = Order::where('id',$id)->with('orderUser','orderItems')->first();
         $ship = Transport::where('order_id',$id)->with('orderShip')->first();
         
-        return view('admin.ship.view',[
+        return view("Admin.ship.show",[
             'title' => 'Đơn hàng',
             'order' => $order,
             'shipper' =>$ship

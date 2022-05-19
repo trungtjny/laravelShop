@@ -25,10 +25,10 @@
                                         $y = 'class= "order-tracking completed"';
                                         $n = 'class= "order-tracking"';
                                     @endphp
-                                    @if ($order->status !=6){
+                                    @if ($order->status !=6) 
                                         <div @php if($order->status >= 0 && $order->status != 6) echo $y; else echo $n; @endphp >
                                             <span class="is-complete "></span>
-                                            <p>Đặt hàng<br><span>{{$order->created_at}}</span></p>
+                                            <p>Đặt hàng <br><span>{{$order->created_at}}</span></p>
                                         </div>
                                         <div @php if($order->status >= 1 && $order->status != 6) echo $y; else echo $n; @endphp>
                                             <span class="is-complete"></span>
@@ -46,7 +46,7 @@
                                             <span class="is-complete"></span>
                                             <p>Hoàn tất<br><span>{{($order->status == 4 || $order->status == 5) ? $order->updated_at : ""}}</span></p>
                                         </div>
-                                    }
+                                    
                                     @else <h4 class="text-danger"> Đơn hàng đã bị huỷ - thời gian: {{$order->updated_at}}</h4>    
                                     @endif
                                 </div>
