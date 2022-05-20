@@ -6,24 +6,25 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
     public function index(){
         $list = $this->getListDayInMonth();
-        $arrMoney = Order::where('status',4)->whereMonth('created_at',date('m'))
+        /* $arrMoney = Order::where('status',4)->whereMonth('created_at',date('m'))
             ->select(DB::raw("sum(totalPrice) as totalMoney"), DB::raw("DATE(created_at) day"))
-            ->groupBY("day")->get()->toArray();
-        /* $arrMoney = DB::raw("select sum('totalPrice') as 'totalMoney', DATE(created_at) day from orders where status = 4 and month(created_at) = DATE('m') group by day");  */   
-        /* dd($arrMoney->toSql()); */
+            ->groupBY("day")->get()->toArray(); */
+        $arrMoney = DB::select("select sum(totalPrice) as totalMoney, DATE(created_at) day from orders where status = 4 and month(created_at) = ? group by day",[Date('m')]);     
+         /* dd(gettype($arrMoney) ); */ 
        $listMoney = [];
        $totalMoney =0;
         foreach($list as $day){
             $money =0;
             foreach($arrMoney as $revenue){
-                if($revenue['day']==$day){
-                    $money = $revenue['totalMoney'];
+                if($revenue->day==$day){
+                    $money = $revenue->totalMoney;
                     break;
                 }
             }
