@@ -16,7 +16,9 @@ class AdminController extends Controller
         /* $arrMoney = Order::where('status',4)->whereMonth('created_at',date('m'))
             ->select(DB::raw("sum(totalPrice) as totalMoney"), DB::raw("DATE(created_at) day"))
             ->groupBY("day")->get()->toArray(); */
-        $arrMoney = DB::select('SELECT SUM(totalprice) as totalMoney, DATE(created_at) as day FROM orders WHERE status = ? AND month(created_at) = ? group by day',[4,Date('m')]);     
+        $arrMoney = DB::select('SELECT SUM(totalprice) as totalMoney, DATE(created_at) as day FROM orders WHERE status = ? AND EXTRACT(MONTH FROM created_at) = ? group by day',[4,Date('m')]);  
+        
+       /*  $arrMoney = DB::select('SELECT SUM(totalprice) as totalMoney, DATE(created_at) as day FROM orders WHERE status = ? AND month(created_at) = ? group by day',[4,Date('m')]);  */
        /*   dd(($arrMoney) );  */
        $listMoney = [];
        $totalMoney =0;
