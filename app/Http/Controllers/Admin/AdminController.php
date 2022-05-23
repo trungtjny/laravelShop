@@ -17,7 +17,7 @@ class AdminController extends Controller
             ->select(DB::raw("sum(totalPrice) as totalMoney"), DB::raw("DATE(created_at) day"))
             ->groupBY("day")->get()->toArray(); */
         $arrMoney = DB::select('SELECT SUM(totalprice) as totalmoney, DATE(created_at) as day FROM orders WHERE status = ? AND EXTRACT(MONTH FROM created_at) = ? group by day',[4,Date('m')]);  
-        var_dump($arrMoney);
+        
        /*  $arrMoney = DB::select('SELECT SUM(totalprice) as totalMoney, DATE(created_at) as day FROM orders WHERE status = ? AND month(created_at) = ? group by day',[4,Date('m')]);  */
        /*   dd(($arrMoney) );  */
        $listMoney = [];
@@ -26,7 +26,7 @@ class AdminController extends Controller
             $money =0;
             foreach($arrMoney as $revenue){
                 if($revenue->day==$day){
-                    $money = $revenue['totalmoney'];
+                    $money = $revenue->totalmoney;
                     break;
                 }
             }
