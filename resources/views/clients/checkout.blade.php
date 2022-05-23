@@ -109,7 +109,7 @@
                         <div class="row">
                             <div class="col-6  d-flex align-items-center" style="">
                                 Thanh toán: {{number_format($totalPrice)}}VND
-                                <input type="number" hidden name="totalPrice" value="{{$totalPrice}}" class="form-control" >
+                                <input type="number" hidden name="totalprice" value="{{$totalPrice}}" class="form-control" >
                             </div>
                             <div class="col-6  d-grid gap-2 " style="">
                                 <button class="btn btn-cart rounded-pill" type="submit">Đặt hàng</a></button>

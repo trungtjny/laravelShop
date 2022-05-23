@@ -15,7 +15,7 @@ class Order extends Model
         'lname',
         'phone',
         'city',
-        'totalPrice',
+        'totalprice',
         'address',
         'status',
         'message'

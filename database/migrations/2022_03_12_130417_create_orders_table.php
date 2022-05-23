@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('phone');
             $table->string('city');
             $table->string('address');
-            $table->integer('totalPrice');
+            $table->integer('totalprice');
             $table->integer('status')->default('0');
             $table->string('message')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
