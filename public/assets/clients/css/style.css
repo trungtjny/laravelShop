@@ -131,8 +131,6 @@ h1 {
     transform: translate(-13px, -8px);
 }
 
-.main {}
-
 .main-home {
     max-height: 600px;
 }
@@ -210,8 +208,6 @@ h1 {
     background-image: url("https://cdn0.iconfinder.com/data/icons/user-interface-150/24/List_menu_toggle-512.png");
 }
 
-.custom-toggler.navbar-toggler {}
-
 
 /* product-page */
 
@@ -225,8 +221,6 @@ h1 {
 a:hover {
     color: black;
 }
-
-select {}
 
 select:hover {
     background-color: gren;
@@ -257,8 +251,6 @@ footer a {
     border: 1px solid var(--bg-info);
     width: 200px;
 }
-
-.ui-slider-range {}
 
 .ui-slider .ui-slider-range {
     background-color: var(--bg-info);

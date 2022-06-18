@@ -94,16 +94,16 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                        $totalPrice=0;
+                                        $totalprice=0;
                                     @endphp
                                     @foreach ($order['orderItems'] as $item)
                                         @if ($item['products']->amount >= $item->quantity)
                                             @php
                                                 ($item['products']->active_sale) ? $price = $item['products']->price_sale : $price = $item['products']->price;
-                                                $totalPrice += $price*$item->quantity;
+                                                $totalprice += $price*$item->quantity;
                                             @endphp
                                             <tr>
-                                                <td><img  src="/uploads/oroducts/{{$item['products']->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px"></td>
+                                                <td><img  src="/uploads/products/{{$item['products']->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px"></td>
                                                 <td class="my-auto">{{$item['products']->name}}</td>
                                                 <td>{{$item->quantity}}</td>
                                                 <td>{{$price}}</td>
@@ -115,8 +115,8 @@
                         </div>
                         <div class="card-footer">
                                 <div class="  d-flex align-items-center" style="">
-                                   <h4> Số tiền cần thanh toán: {{number_format($totalPrice)}}VND</h4>
-                                    <input type="number" hidden name="totalPrice" value="{{$totalPrice}}" class="form-control" >
+                                   <h4> Số tiền cần thanh toán: {{number_format($totalprice)}}VND</h4>
+                                    <input type="number" hidden name="totalprice" value="{{$totalprice}}" class="form-control" >
                                 </div>
                                 <hr>
 
@@ -135,7 +135,7 @@
                                         <select  class="statusOrder" style="border-radius: 10px; padding: 8px" >
                                             {{-- <option value="0" {{ ($order->status == 0) ? 'selected' :""}}>Chưa xác nhận </option>
                                             <option value="1" {{ ($order->status == 1) ? 'selected' :""}}>Đã xác nhận</option>--}}
-                                            <option value="2" {{ ($order->status == 2) ? 'selected' :""}}>Đã nhận hàng</option> 
+                                            <option value="2" {{ ($order->status == 2) ? 'selected' :""}}>Đang nhận hàng</option> 
                                             <option value="3" {{ ($order->status == 3) ? 'selected' :""}}>Đang giao hàng</option>
                                             <option value="4" {{ ($order->status == 4) ? 'selected' :""}}>Giao hàng thành công</option>
                                             <option value="5" {{ ($order->status == 5) ? 'selected' :""}}>Giao hàng thất bại</option>

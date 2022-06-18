@@ -18,7 +18,7 @@
                 <div class="card  mt-3">
                     <div class="card-body">
                         @php
-                            $totalPrice =0;
+                            $totalprice =0;
                             $disabled ='';
                         @endphp
                         @if ($cartItem->count())
@@ -41,7 +41,7 @@
                                                 <input type="text" name='quantity' style=" with: 20%" class="form-control quantity-input text-center px-0" value="{{$item->quantity}}">
                                             <button class="input-group-text increment-btn changeQuantity">+</button>
                                             @php
-                                                $totalPrice += $price* $item->quantity;
+                                                $totalprice += $price* $item->quantity;
                                             @endphp
                                         @else <button class="btn btn-secondary rounded-pill">Đã bán hết</button>
                                         @endif
@@ -65,9 +65,9 @@
                     </div>
                     <div class="card-footer ">
                         @if ($cartItem->count())
-                        Tổng cộng: {{$totalPrice}} VND;
+                        Tổng cộng: {{$totalprice}} VND;
                         <a class="btn btn-cart float-end" href="{{route('checkout')}}" >
-                            <i class="fa fa-shopping-cart" ></i> Thanh toán
+                            <i class="fa fa-shopping-cart" ></i> Đặt hàng
                         </a>
                         @endif
                     </div>

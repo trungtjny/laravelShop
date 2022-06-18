@@ -99,14 +99,14 @@
                                     </thead>
                                     <tbody>
                                         @php
-                                            $totalPrice=0;
+                                            $totalprice=0;
                                             
                                         @endphp
                                         @foreach ($order->orderItems as $item)
                                             @if ( $item->quantity)
                                                 @php
                                                     ($item->products->active_sale) ? $price = $item->products->price_sale : $price = $item->products->price;
-                                                    $totalPrice += $price*$item->quantity;
+                                                    $totalprice += $price*$item->quantity;
                                                 @endphp
                                                 <tr>
                                                     <td><img  src="/uploads/products/{{$item->products->thumb}}" alt="Ảnh sản phẩm" width="70px" height="70px"></td>
@@ -122,8 +122,8 @@
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-6  d-flex align-items-center" style="">
-                                        Số tiền cần thanh toán: {{number_format($totalPrice)}}VNĐ
-                                        <input type="number" hidden name="totalPrice" value="{{$totalPrice}}" class="form-control" >
+                                        Số tiền cần thanh toán: {{number_format($totalprice)}}VNĐ
+                                        <input type="number" hidden name="totalprice" value="{{$totalprice}}" class="form-control" >
                                     </div>
                                 </div>
                             </div>

@@ -53,7 +53,7 @@
                         @php $status = 'Chưa xác nhận'; @endphp
                     @endswitch
                   <td>{{ date('H:i:s d/m/Y',strtotime($item->created_at)) }}</td>
-                  <td>{{number_format($item->totalPrice)}} VND</td>
+                  <td>{{number_format($item->totalprice)}} VND</td>
                   <td>{{$status}}</td>
                   <td>
                       <a href={{route('orderdetail', ['id' => $item->id])}} class="btn btn-info">Xem</a>

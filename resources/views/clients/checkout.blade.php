@@ -86,13 +86,13 @@
                             </thead>
                             <tbody>
                                 @php
-                                    $totalPrice=0;
+                                    $totalprice=0;
                                 @endphp
                                 @foreach ($cartItem as $item)
                                     @if ($item->products->amount >= $item->quantity)
                                         @php
                                             ($item->products->active_sale) ? $price = $item->products->price_sale : $price = $item->products->price;
-                                            $totalPrice += $price*$item->quantity;
+                                            $totalprice += $price*$item->quantity;
                                         @endphp
                                         <tr>
                                             <td>{{$item->products->name}}</td>
@@ -108,8 +108,8 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-6  d-flex align-items-center" style="">
-                                Thanh toán: {{number_format($totalPrice)}}VND
-                                <input type="number" hidden name="totalprice" value="{{$totalPrice}}" class="form-control" >
+                                Thanh toán: {{number_format($totalprice)}}VND
+                                <input type="number" hidden name="totalprice" value="{{$totalprice}}" class="form-control" >
                             </div>
                             <div class="col-6  d-grid gap-2 " style="">
                                 <button class="btn btn-cart rounded-pill" type="submit">Đặt hàng</a></button>

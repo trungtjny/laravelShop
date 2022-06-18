@@ -33,7 +33,7 @@
                     <td>{{++$i }}</td>
                     <td><h5>{{ $item->phone}}</h5></td>
                     <td><h5>{{ $item->address}}</h5></td>
-                    <td><h5>{{number_format($item->totalPrice)}} VND</h5></td>
+                    <td><h5>{{number_format($item->totalprice)}} VND</h5></td>
                     <td>
                         <button  class="btn btn-warning mx-2 ">
                             <a href="{{route('shipper.show', ['id' => $item->id])}} " class="text-dark">

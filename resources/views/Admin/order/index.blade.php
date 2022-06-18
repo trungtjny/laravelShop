@@ -49,7 +49,7 @@
                 <td>{{ $item['orderUser']->email }}</td>
                 <td>{{ $item->phone}}</td>
                 <td>{{ $item->city}}</td>
-                <td>{{ $item->totalPrice}}</td>
+                <td>{{ $item->totalprice}}</td>
                 <td>
                     
                     @switch($item->status)

@@ -35,7 +35,7 @@
                             <td>{{++$i }}</td>
                             <td><h5>{{ $item['order']->phone}}</h5></td>
                             <td><h5>{{ $item['order']->address}}</h5></td>
-                            <td><h5>{{number_format($item['order']->totalPrice)}} VND</h5></td>
+                            <td><h5>{{number_format($item['order']->totalprice)}} VND</h5></td>
                             <td>
                     
                                 @switch($item['order']->status)
