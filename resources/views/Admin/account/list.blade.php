@@ -49,10 +49,10 @@
                     @endphp
                 </td>
                 <td>
-                    <a href="" class="btn btn-warning btn-sm mx-2">
-                    <i class="far fa-edit"> Xem</i>
+                    <a href="{{route('admin.editmember', ['id'=> $item->id])}}" class="btn btn-warning btn-sm mx-2">
+                    <i class="far fa-edit"> Sửa</i>
                     </a>
-                    <a href="" class="btn btn-danger btn-sm mx-2">
+                    <a href="{{route('admin.deletemember', ['id'=> $item->id])}}" class="btn btn-danger btn-sm mx-2">
                         <i class="fa fa-trash-o"> Xoá</i>
                         </a>
                 </td>

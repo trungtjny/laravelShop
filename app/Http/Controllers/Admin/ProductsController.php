@@ -39,7 +39,7 @@ class ProductsController extends Controller
         
         return view('Admin.product.index',[
             'title' => 'Danh sách sản phẩm',
-            'products' =>$products->with('category')->paginate(5),
+            'products' =>$products->with('category')->paginate(10),
             'categories' => Category::all()
         ]);
         /* $data = Product::with('category')->get();

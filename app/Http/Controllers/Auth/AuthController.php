@@ -110,4 +110,20 @@ class AuthController extends Controller
             return redirect()->back();
         
     }
+
+    public function edit($id){
+        $title = "Sửa thông tin nhân viên";
+        $user = User::findOrFail($id);
+        return view('Admin.account.edit',compact('user','title'));
+    }
+    public function save($id,Request $request){
+        $data = $request->all();
+        $user = User::findOrFail($id);
+        $user->update($data);
+        return back()->with('msg','Thay đổi thông tin thành công');
+    }
+    public function delete($id){
+        $user = User::findOrFail($id)->delete();
+        return back()->with('msg','Xóa nhân viên thành công');
+    }
 }

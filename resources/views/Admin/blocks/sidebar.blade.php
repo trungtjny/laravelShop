@@ -22,7 +22,7 @@
                     <p> HOME</p>
                     </a>
                 </li>
-                <li class="nav-item ">
+                {{-- <li class="nav-item ">
                     <a href="#" class="nav-link ">
                     <i class="nav-icon fa fa-folder "></i>
                     <p>
@@ -44,7 +44,7 @@
                         </a>
                     </li>
                     </ul>
-                </li>
+                </li> --}}
                 @if (Auth::user()->role <=2 )
                 <li class="nav-header mt-3"><h5 class="text-warning">Nhân viên</h5></li>
                 <li class="nav-item ">
@@ -109,6 +109,29 @@
                         <a href="{{route('admin.order.index')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Danh sách đơn hàng</p>
+                        </a>
+                    </li>
+                    </ul>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{route('admin.warehouse.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-table"></i>
+                    <p>
+                        Kho hàng
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('admin.warehouse.index')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Lịch sử nhập hàng</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.warehouse.create')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Nhập hàng mới</p>
                         </a>
                     </li>
                     </ul>
@@ -189,12 +212,7 @@
                 </li>
                 @endif
                 <li class="nav-header"><h5 class="text-warning">Tài khoản</h5></li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-file"></i>
-                    <p>Quản lý tài khoản</p>
-                    </a>
-                </li>
+                
                 <li class="nav-item">
                     <a href="{{route('logout')}}" class="nav-link">
                     <i class="nav-icon fas fa-file"></i>

@@ -27,6 +27,15 @@
                     </div>
                 </form>
             </div>
+            <div class="my-3">
+                <a href="order?status=0" class="button border border-info py-2 px-1 text-secondary">Đơn chưa xác nhận</a>
+                <a href="order?status=1" class="button border border-info py-2 px-1 text-secondary">Đơn đã xác nhận</a>
+                <a href="order?status=2" class="button border border-info py-2 px-1 text-secondary">Đơn lấy hàng</a>
+                <a href="order?status=3" class="button border border-info py-2 px-1 text-secondary">Đang giao hàng</a>
+                <a href="order?status=4" class="button border border-info py-2 px-1 text-secondary">Đơn giao hàng thành công</a>
+                <a href="order?status=5" class="button border border-info py-2 px-1 text-secondary">Đơn giao hàng thất bại</a>
+                <a href="order?status=6" class="button border border-info py-2 px-1 text-secondary">Đơn bị hủy</a>
+            </div>
       <table class="table ">
         <thead>
           <tr>

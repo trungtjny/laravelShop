@@ -15,6 +15,9 @@ class OrderController extends Controller
         if(isset($request->phone)) {
             $query = $query->where('phone','LIKE', "%".$request->phone."%");
         }
+        if(isset($request->status)) {
+            $query = $query->where('status',$request->status);
+        }
         if(isset($request->date_form ) && $request->date_to){
             $query = $query->whereBetween('created_at',[$request->date_from, $request->date_to]);
         }

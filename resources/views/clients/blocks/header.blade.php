@@ -36,8 +36,8 @@
                               </button>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                               <li><a class="nav-link-header " href="{{route('cart')}}"><i class="fas fa-shopping-cart"></i>  Giỏ hàng</a></li>
-                              <li><a class="nav-link-header" href="{{route('myoders')}}"><i class="fas fa-shopping-cart"></i>  Đơn mua</a></li>
-                              <li><a class="nav-link-header" href="{{route('account')}}"><i class="fas fa-sign-out-alt"></i>Tài khoản </a></li>
+                              <li><a class="nav-link-header" href="{{route('myoders')}}"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Đơn mua</a></li>
+                              <li><a class="nav-link-header" href="{{route('account')}}"><i class="fa fa-address-card" aria-hidden="true"></i>Tài khoản </a></li>
                               <li><a class="nav-link-header" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i>  Đăng xuất </a></li>
                           </ul>
                       </div>

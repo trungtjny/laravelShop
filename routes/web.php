@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DesignController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\ShipperController;
+use App\Http\Controllers\Admin\WarehouseController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderControllerClient;
@@ -109,6 +110,21 @@ Route::name('admin.')->middleware('admin')->group(function () {
 
             Route::delete('/destroy', [CategoryController::class, 'destroy'])->name('category.destroy');
         });
+        Route::prefix('warehouse')->group(function () {
+            Route::get('/',[WarehouseController::class, 'index'])->name('warehouse.index');
+
+            Route::get('/create', [WarehouseController::class, 'create'])->name('warehouse.create');
+
+            Route::post('/create', [WarehouseController::class, 'store'])->name('warehouse.store');
+
+            Route::get('/{id}', [WarehouseController::class, 'show'])->name('warehouse.show');
+
+            Route::get('/edit/{id}', [WarehouseController::class, 'edit'])->name('warehouse.edit');
+
+            Route::post('/update/{id}', [WarehouseController::class, 'update'])->name('warehouse.update');
+
+            Route::delete('/destroy', [WarehouseController::class, 'destroy'])->name('warehouse.destroy');
+        });
         Route::prefix('design')->group(function () {
             Route::get('/banner', [DesignController::class, 'banner'])->name('design.banner');
             Route::post('/banner', [DesignController::class, 'create_banner'])->name('design.banner.post');
@@ -131,8 +147,10 @@ Route::name('admin.')->middleware('admin')->group(function () {
         Route::middleware('RoleAdmin')->group(function(){
             Route::get('/member',[AuthController::class,'getList'])->name('listmember');
             Route::get('/member/add',[AuthController::class,'registerAdm'])->name('addmember');
+            Route::get('/member/edit/{id}',[AuthController::class,'edit'])->name('editmember');
+            Route::post('/member/edit/{id}',[AuthController::class,'save'])->name('savemember');
             Route::post('/member/add',[AuthController::class,'postRegisterAdm'])->name('postaddmember');
-
+            Route::get('/member/delete/{id}',[AuthController::class,'delete'])->name('deletemember');
         });
     });
 });

@@ -86,21 +86,21 @@
           <div class="row">
             <div class="col-sm-4 col-12">
               <span style="font-size: 50px; color: #000" class="" >
-                <i class="fas fa-snowflake-o " aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
               </span>
               <h4 class="">Cam kết chất lượng</h4>
               <p >Chúng tôi cung cấp sản phẩm có nguyên liệu nhựa an toàn, không gây hại.</p>
             </div>
             <div class="col-sm-4 ">
               <span style="font-size: 50px; color: #000" class="" >
-                <i class="fas fa-snowflake-o " aria-hidden="true"></i>
+                <i class="fa fa-handshake-o" aria-hidden="true"></i>
               </span>
               <h4 >Sản phẩm chính hãng</h4>
               <p >Các sản phẩm cửa hàng bày bán đều là hàng chính hãng.</p>
             </div>
             <div class="col-sm-4">
               <span style="font-size: 50px; color: #000" class="" >
-                <i class="fas fa-snowflake-o " aria-hidden="true"></i>
+                <i class="fa fa-truck" aria-hidden="true"></i>
               </span>
               <h4 >Giao hàng hoả tốc</h4>
               <p >Đơn đặt hàng của bạn sẽ được xác nhận và giao hàng nhanh.</p>
@@ -108,42 +108,6 @@
           </div>
         </div>
       </div>
-    </div> 
-      {{-- 
-            @if($products->count())
-              @foreach ($products as $item)
-              <div class="col-12 col-sm-8 col-md-4 col-lg-3 mt-3">
-                <div class="card product-data">
-                  <div class="d-flex align-items-center" style="height: 300px">
-                    <a href="{{route('productDetail', ['id' => $item->id])}}" >
-                      <img class="card-img px-1  " src="/uploads/{{$item->thumb}}" alt="Ảnh sản phẩm">
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <div class="card-title overflow-hidden " style="height: 50px">
-                      <h6 ><a href="{{route('productDetail', ['id' => $item->id])}}" class="text-decoration-none text-dark">{{$item->name}}</a></h6>
-                    </div>
-                    <div class="d-flex">
-                      <div class="me-auto p-1 ">
-                          Đã bán: {{$item->sold}} 
-                      </div>
-                      <div class="p-1 ">
-                          Còn lại: {{$item->amount}} 
-                      </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="price text-success"><h5 class="mt-4">{{number_format(($item->active_sale == 0) ? $item->price :$item->price_sale)}}đ</h5></div>
-                      <input type="hidden" name='quantity'  class="form-control quantity-input" value="1">
-                      <input type="hidden" name="product_id" class="product_id" value="{{$item->id}}">
-                      <button class="btn btn-danger mt-3 addToCart-btn"><i class="fas fa-shopping-cart"></i> </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              @endforeach
-            @else <h5 class="m-3">Không tìm thấy sản phẩm phù hợp</h5>  
-            @endif --}}
-        
 @endsection
 
 @section('css')
